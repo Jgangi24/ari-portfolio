@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Agently — Case Study</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Space Grotesk',sans-serif; background:#F0F1ED; color:#1B2430; }
+
+  .nav { display:flex; justify-content:space-between; align-items:center; padding:32px 48px; border-bottom:1px solid #1B24301a; }
+  .nav .mark { font-family:'Fraunces',serif; font-size:20px; font-weight:600; }
+  .nav .links { display:flex; gap:32px; font-size:13px; font-weight:500; }
+  .nav .links span:hover { color:#DD5E1E; cursor:pointer; }
+
+  .back { padding:28px 48px 0; }
+  .back a { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; text-decoration:none; }
+  .back a:hover { color:#DD5E1E; }
+
+  .hero-wrap { padding:40px 48px 0; max-width:1100px; }
+  .eyebrow { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; background:#1B2430; color:#F0F1ED; padding:5px 12px; border-radius:2px; margin-bottom:24px; }
+  h1.title { font-family:'Fraunces',serif; font-size:56px; font-weight:600; line-height:1.05; letter-spacing:-0.01em; margin-bottom:16px; }
+  .tagline { font-size:19px; line-height:1.6; color:#1B2430cc; max-width:640px; margin-bottom:48px; }
+
+  .hero-img { width:100%; max-width:1100px; margin:0 auto 64px; display:block; border-radius:8px; }
+  .hero-img img { width:100%; display:block; border-radius:8px; }
+
+  .meta-row { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin:0 48px 90px; max-width:1000px; padding:32px 0; border-top:1px solid #1B24301a; border-bottom:1px solid #1B24301a; }
+  .meta-item .label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.05em; color:#1B243088; margin-bottom:8px; }
+  .meta-item .value { font-size:15px; font-weight:500; }
+  .meta-item .value.ph { color:#DD5E1E; font-style:italic; }
+
+  section { padding:0 48px 100px; max-width:1000px; }
+  .section-label { display:flex; align-items:center; gap:12px; margin-bottom:28px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#DD5E1E; }
+  .section-label::after { content:""; flex:1; height:1px; background:#1B243022; }
+  h2 { font-family:'Fraunces',serif; font-size:34px; font-weight:600; line-height:1.2; max-width:760px; margin-bottom:24px; }
+  p.body-text { font-size:16px; line-height:1.75; color:#1B2430dd; max-width:680px; margin-bottom:20px; }
+  .ph-tag { display:inline-block; background:#DD5E1E22; color:#DD5E1E; font-family:'JetBrains Mono',monospace; font-size:12px; padding:3px 8px; border-radius:3px; font-style:italic; }
+
+  .img-pair { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:36px 0; }
+  .img-pair img, .img-single img { width:100%; border-radius:8px; display:block; }
+  .img-single { margin:36px 0; }
+  figcaption { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; margin-top:12px; }
+
+  .step { display:grid; grid-template-columns:1fr 1.1fr; gap:48px; align-items:center; margin-bottom:80px; }
+  .step:nth-child(even) { direction:rtl; }
+  .step:nth-child(even) > div { direction:ltr; }
+  .step .step-num { font-family:'JetBrains Mono',monospace; font-size:13px; color:#DD5E1E; margin-bottom:12px; }
+  .step h3 { font-family:'Fraunces',serif; font-size:26px; font-weight:600; margin-bottom:14px; }
+  .step p { font-size:15px; line-height:1.7; color:#1B2430cc; }
+  .step img { width:100%; border-radius:8px; }
+
+  .learnings { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .learning-card { background:#fff; border-radius:8px; padding:32px; border:1px solid #1B24301a; }
+  .learning-card h4 { font-family:'Fraunces',serif; font-size:20px; margin-bottom:12px; }
+  .learning-card p { font-size:14px; line-height:1.65; color:#1B2430cc; }
+
+  .nav-footer { display:flex; justify-content:space-between; padding:48px 48px 80px; border-top:1px solid #1B24301a; font-family:'JetBrains Mono',monospace; font-size:13px; }
+  .nav-footer a { color:#1B2430; text-decoration:none; }
+  .nav-footer a:hover { color:#DD5E1E; }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="mark">Ari Berenson</div>
+  <div class="links"><a href="index.html">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
+</div>
+
+<div class="back"><a href="index.html">← Back to work</a></div>
+
+<div class="hero-wrap">
+  <div class="eyebrow">CASE STUDY — PRODUCT / UX DESIGN</div>
+  <h1 class="title">Agently</h1>
+  <p class="tagline">An intelligent recommendation and messaging platform built for how real estate agents actually communicate with clients — not how MLS software assumes they do.</p>
+</div>
+
+<div class="hero-img">
+  <img src="images/Agently_2.jpg" alt="Agently splash screen on phone">
+</div>
+
+<div class="meta-row">
+  <div class="meta-item">
+    <div class="label">ROLE</div>
+    <div class="value">UI/UX Design Lead</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">TIMELINE</div>
+    <div class="value ph">[add timeline]</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">TEAM</div>
+    <div class="value ph">[add team / collaborators]</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">SKILLS</div>
+    <div class="value">User research, UI/UX design, prototyping, dashboard design</div>
+  </div>
+</div>
+
+<section>
+  <div class="section-label">THE PROBLEM</div>
+  <h2>Real estate agents were drowning in disconnected tools — MLS listings in one place, client texts in another, and no clear signal on who actually needed a follow-up.</h2>
+  <p class="body-text"><span class="ph-tag">[Ari: replace with the real problem]</span> Agents were spending hours manually cross-referencing new listings against what each client wanted, then reaching out one by one — with no way to tell which clients were actively engaged versus going cold. How might we help agents prioritize their time and communicate with clients in the moment a match happens, instead of after the fact?</p>
+</section>
+
+<section>
+  <div class="section-label">RESEARCH</div>
+  <h2>Key insights that shaped the design</h2>
+  <p class="body-text"><span class="ph-tag">[Ari: swap in real research findings — interviews, competitive analysis, data points]</span> Agents don't check dashboards on a schedule — they react to notifications throughout the day, often from their phone between showings. Any tool that required them to log in and dig for information would get ignored. Clients, meanwhile, engage most when a listing is shared to them directly and personally, not through a generic portal.</p>
+  <div class="img-pair">
+    <div>
+      <img src="images/Agently_5.jpg" alt="Active clients list and contact detail">
+      <figcaption>Agents needed to see engagement per client at a glance, not just a list of names.</figcaption>
+    </div>
+    <div>
+      <img src="images/Agently_1.jpg" alt="Matched listings feed">
+      <figcaption>Listings had to be matched and shareable in the same view — no app-switching.</figcaption>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">THE SOLUTION</div>
+  <h2>Help agents see who needs attention first, and reach out from inside the same flow where a match happens.</h2>
+
+  <div class="step">
+    <div>
+      <div class="step-num">01</div>
+      <h3>Start the day with a prioritized snapshot</h3>
+      <p>Agents open the app to a daily dashboard that surfaces what actually needs action: new matched listings, clients with high engagement who haven't been followed up with, and clients who've gone quiet. No digging — the highest-priority information is the first thing they see.</p>
+    </div>
+    <img src="images/Agently_6.jpg" alt="Agently dashboard with daily task summary">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">02</div>
+      <h3>Match listings to clients automatically</h3>
+      <p>New listings are matched against each client's saved preferences and surfaced directly in a shareable card — price, beds, baths, and square footage front and center — so the agent can forward a match in a single tap instead of manually checking it against what the client wants.</p>
+    </div>
+    <img src="images/Agently_1.jpg" alt="Matched listings with client recommendations">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">03</div>
+      <h3>Keep client context visible, not buried</h3>
+      <p>Each client profile keeps a running note of what they're looking for, alongside a timeline of listings shared and whether they were viewed — so any agent picking up the conversation has full context without having to ask the client to repeat themselves.</p>
+    </div>
+    <img src="images/Agently_5.jpg" alt="Client profile and messaging">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">04</div>
+      <h3>Turn a match into a message in one flow</h3>
+      <p>Sharing a listing doesn't mean leaving the app — agents can message a client directly from the same screen where the match appears, with the listing already attached, keeping the whole interaction inside a single, fast motion.</p>
+    </div>
+    <img src="images/Agently_4.jpg" alt="Agently agent contact card and messaging">
+  </div>
+</section>
+
+<section>
+  <div class="section-label">OUTCOME</div>
+  <h2>Bringing MLS and mobile messaging into one place</h2>
+  <p class="body-text"><span class="ph-tag">[Ari: add real outcome — adoption numbers, client feedback, business impact, or what happened after launch]</span> The finished platform launched in partnership with Gibson Sotheby's International Realty, positioning Agently as, in the product's own words, "the future of agent communication" — bringing together MLS data and day-to-day client conversation in a single mobile-first tool.</p>
+  <div class="img-single">
+    <img src="images/Agently_3.jpg" alt="Agently marketing site on laptop and phone">
+    <figcaption>Launch site and responsive marketing pages for the Gibson Sotheby's partnership.</figcaption>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">LEARNINGS</div>
+  <h2>Key takeaways</h2>
+  <div class="learnings">
+    <div class="learning-card">
+      <h4><span class="ph-tag">[Ari: real learning #1]</span></h4>
+      <p>Placeholder: something like — designing for a mobile-first, in-the-moment user changes what "dashboard" even means. It's not a report, it's a to-do list.</p>
+    </div>
+    <div class="learning-card">
+      <h4><span class="ph-tag">[Ari: real learning #2]</span></h4>
+      <p>Placeholder: something like — talking to actual agents early saved us from building a generic CRM nobody asked for.</p>
+    </div>
+  </div>
+</section>
+
+<div class="nav-footer">
+  <a href="index.html">← Back to Work</a>
+  <a href="picin.html">Picin →</a>
+</div>
+
+</body>
+</html>

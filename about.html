@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About — Ari Berenson</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Space Grotesk',sans-serif; background:#F0F1ED; color:#1B2430; }
+
+  .nav { display:flex; justify-content:space-between; align-items:center; padding:32px 48px; border-bottom:1px solid #1B24301a; }
+  .nav .mark { font-family:'Fraunces',serif; font-size:20px; font-weight:600; }
+  .nav .links { display:flex; gap:32px; font-size:13px; font-weight:500; }
+  .nav .links span:hover { color:#DD5E1E; cursor:pointer; }
+  .nav .links span.current { color:#DD5E1E; }
+
+  .hero-wrap { padding:56px 48px 0; max-width:1000px; }
+  .eyebrow { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; background:#1B2430; color:#F0F1ED; padding:5px 12px; border-radius:2px; margin-bottom:24px; }
+  h1.title { font-family:'Fraunces',serif; font-size:48px; font-weight:600; line-height:1.1; letter-spacing:-0.01em; margin-bottom:56px; max-width:700px; }
+  h1.title .accent { color:#DD5E1E; font-style:italic; }
+
+  .about-grid { display:grid; grid-template-columns:380px 1fr; gap:56px; padding:0 48px 100px; max-width:1000px; align-items:start; }
+  .photo-block img { width:100%; border-radius:8px; display:block; }
+  .photo-caption { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; margin-top:14px; font-style:italic; }
+
+  .bio p { font-size:17px; line-height:1.8; color:#1B2430dd; margin-bottom:22px; max-width:560px; }
+  .bio p:first-child { font-family:'Fraunces',serif; font-size:22px; line-height:1.5; color:#1B2430; font-weight:500; }
+
+  .clients { padding:0 48px 120px; max-width:1000px; }
+  .section-label { display:flex; align-items:center; gap:12px; margin-bottom:28px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#DD5E1E; }
+  .section-label::after { content:""; flex:1; height:1px; background:#1B243022; }
+  .client-list { display:flex; flex-wrap:wrap; gap:16px 40px; }
+  .client-list span { font-family:'Fraunces',serif; font-size:22px; color:#1B2430cc; }
+  .client-list .more { font-family:'JetBrains Mono',monospace; font-size:13px; color:#DD5E1E; align-self:center; }
+
+  footer { padding:40px 48px; border-top:1px solid #1B24301a; font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="mark">Ari Berenson</div>
+  <div class="links"><a href="index.html">Work</a><a href="about.html" class="current">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
+</div>
+
+<div class="hero-wrap">
+  <div class="eyebrow">ABOUT</div>
+  <h1 class="title">15+ years of making sense of <span class="accent">messy problems.</span></h1>
+</div>
+
+<div class="about-grid">
+  <div class="photo-block">
+    <img src="images/ARi-Family-Photo.jpg" alt="Ari Berenson with his family on the rocks by the water">
+    <div class="photo-caption">Me and my beautiful fam, Lily, Abe, Ivy, and me</div>
+  </div>
+  <div class="bio">
+    <p>I've spent the last 15+ years turning ambiguous, half-formed problems into interfaces and brands people actually want to use.</p>
+    <p>I've worked across UI/UX design, product design, and brand identity — for scrappy startups figuring out their first product and household names shipping to millions. I'm not precious about staying in one lane: research one week, pixel-level UI the next, a full brand system the week after that. If it's design-shaped, I'm probably into it.</p>
+    <p>What hasn't changed across all of it: I care more about whether something actually works for the person using it than whether it looks impressive in a portfolio. The good design part usually follows once that's right.</p>
+    <p>Outside of work, I'm mostly outnumbered — chasing two kids around, usually somewhere near the water.</p>
+  </div>
+</div>
+
+<div class="clients">
+  <div class="section-label">PREVIOUS CLIENTS</div>
+  <div class="client-list">
+    <span>New Balance</span>
+    <span>UNIQLO</span>
+    <span>HomeGoods</span>
+    <span>Air / Army National Guard</span>
+    <span class="more">+ more</span>
+  </div>
+</div>
+
+<footer>© Ari Berenson</footer>
+
+</body>
+</html>

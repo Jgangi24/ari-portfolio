@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sitting In The Circle — Illustration</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Space Grotesk',sans-serif; background:#F0F1ED; color:#1B2430; }
+
+  .nav { display:flex; justify-content:space-between; align-items:center; padding:32px 48px; border-bottom:1px solid #1B24301a; }
+  .nav .mark { font-family:'Fraunces',serif; font-size:20px; font-weight:600; }
+  .nav .links { display:flex; gap:32px; font-size:13px; font-weight:500; }
+  .nav .links span:hover { color:#DD5E1E; cursor:pointer; }
+
+  .back { padding:28px 48px 0; }
+  .back a { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; text-decoration:none; }
+  .back a:hover { color:#DD5E1E; }
+
+  .hero-wrap { padding:40px 48px 0; max-width:1000px; }
+  .eyebrow { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; background:#1B2430; color:#F0F1ED; padding:5px 12px; border-radius:2px; margin-bottom:24px; }
+  h1.title { font-family:'Fraunces',serif; font-size:52px; font-weight:600; font-style:italic; line-height:1.1; letter-spacing:-0.01em; margin-bottom:10px; }
+  .subtitle { font-family:'JetBrains Mono',monospace; font-size:13px; color:#1B243099; margin-bottom:28px; }
+  .tagline { font-size:18px; line-height:1.7; color:#1B2430dd; max-width:640px; margin-bottom:56px; }
+  .tagline .credit { color:#DD5E1E; font-style:italic; }
+
+  .cover-block { display:grid; grid-template-columns:1fr 1fr; gap:32px; padding:0 48px; max-width:1000px; margin-bottom:100px; align-items:stretch; }
+  .cover-block .wheel { background:#fff; border-radius:8px; padding:40px; display:flex; align-items:center; justify-content:center; height:420px; }
+  .cover-block .wheel img { width:85%; display:block; }
+  .cover-block .box { display:flex; flex-direction:column; }
+  .cover-block .box img { width:100%; height:420px; object-fit:contain; background:#fff; border-radius:8px; display:block; }
+  figcaption { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; margin-top:14px; }
+
+  section { padding:0 48px 100px; max-width:1000px; }
+  .section-label { display:flex; align-items:center; gap:12px; margin-bottom:32px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#DD5E1E; }
+  .section-label::after { content:""; flex:1; height:1px; background:#1B243022; }
+
+  .gallery { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .gallery-item { background:#fff; border-radius:8px; padding:32px; display:flex; align-items:center; justify-content:center; min-height:280px; }
+  .gallery-item img { width:100%; max-width:320px; display:block; }
+  .gallery-caption { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; margin-top:12px; text-align:center; }
+
+  .spread { margin-bottom:16px; }
+  .spread img { width:100%; border-radius:8px; display:block; box-shadow:0 20px 40px -20px #1B243033; }
+
+  footer { padding:40px 48px; border-top:1px solid #1B24301a; font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; }
+  .nav-footer { display:flex; justify-content:space-between; padding:0 48px 48px; font-family:'JetBrains Mono',monospace; font-size:13px; }
+  .nav-footer a { color:#1B2430; text-decoration:none; }
+  .nav-footer a:hover { color:#DD5E1E; }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="mark">Ari Berenson</div>
+  <div class="links"><a href="index.html">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
+</div>
+
+<div class="back"><a href="index.html">← Back to work</a></div>
+
+<div class="hero-wrap">
+  <div class="eyebrow">ILLUSTRATION &amp; BOOK DESIGN</div>
+  <h1 class="title">Sitting In The Circle</h1>
+  <div class="subtitle">Sacred Observations from the Heart and other Internal Organs</div>
+  <p class="tagline">A collection of short essays written by <span class="credit">my father</span>, drawn from his more than 40-year career as a psychologist. The stories are about love in the small places, off center stage — and I designed the book that holds them, cover to interior illustrations.</p>
+</div>
+
+<div class="cover-block">
+  <div class="wheel">
+    <img src="images/img1.webp" alt="Circular gradient cover illustration for Sitting In The Circle">
+  </div>
+  <div class="box">
+    <img src="images/img3.webp" alt="Finished book packaging with cover illustration">
+    <figcaption>The finished book, printed and bound.</figcaption>
+  </div>
+</div>
+
+<section>
+  <div class="section-label">INTERIOR ILLUSTRATIONS</div>
+  <div class="gallery">
+    <div>
+      <div class="gallery-item"><img src="images/Tree.webp" alt="Illustration of a gnarled tree"></div>
+      <div class="gallery-caption">A weathered tree — resilience, shaped by time.</div>
+    </div>
+    <div>
+      <div class="gallery-item"><img src="images/Doorway.webp" alt="Illustration of a doorway with height marks"></div>
+      <div class="gallery-caption">Height marks in a doorway — a small, quiet record of growing up.</div>
+    </div>
+    <div>
+      <div class="gallery-item"><img src="images/Eggshell.webp" alt="Illustration of a cracked eggshell with tracks leading away"></div>
+      <div class="gallery-caption">A cracked shell and tracks leading forward — new beginnings.</div>
+    </div>
+    <div>
+      <div class="gallery-item"><img src="images/Stairs.webp" alt="Illustration of a winding staircase with small shoes at the bottom"></div>
+      <div class="gallery-caption">A winding staircase, with small shoes left at the base.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">IN PRINT</div>
+  <div class="spread">
+    <img src="images/img2.webp" alt="Open book spread showing an essay page with a buoy illustration">
+  </div>
+  <figcaption>An interior spread — illustration paired with one of the essays.</figcaption>
+</section>
+
+<div class="nav-footer">
+  <a href="tigerlily.html">← Tiger Lily Granola</a>
+  <a href="bydoctors.html">By Doctors →</a>
+</div>
+
+<footer>© Ari Berenson</footer>
+
+</body>
+</html>

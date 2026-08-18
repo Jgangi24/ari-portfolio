@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Picin — Case Study</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Space Grotesk',sans-serif; background:#F0F1ED; color:#1B2430; }
+
+  .nav { display:flex; justify-content:space-between; align-items:center; padding:32px 48px; border-bottom:1px solid #1B24301a; }
+  .nav .mark { font-family:'Fraunces',serif; font-size:20px; font-weight:600; }
+  .nav .links { display:flex; gap:32px; font-size:13px; font-weight:500; }
+  .nav .links span:hover { color:#DD5E1E; cursor:pointer; }
+
+  .back { padding:28px 48px 0; }
+  .back a { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; text-decoration:none; }
+  .back a:hover { color:#DD5E1E; }
+
+  .hero-wrap { padding:40px 48px 0; max-width:1100px; }
+  .eyebrow { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; background:#1B2430; color:#F0F1ED; padding:5px 12px; border-radius:2px; margin-bottom:24px; }
+  h1.title { font-family:'Fraunces',serif; font-size:56px; font-weight:600; line-height:1.05; letter-spacing:-0.01em; margin-bottom:16px; }
+  .tagline { font-size:19px; line-height:1.6; color:#1B2430cc; max-width:640px; margin-bottom:48px; }
+
+  .hero-img { width:100%; max-width:1100px; margin:0 auto 64px; display:block; border-radius:8px; overflow:hidden; }
+  .hero-img img { width:100%; display:block; }
+
+  .meta-row { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin:0 48px 90px; max-width:1000px; padding:32px 0; border-top:1px solid #1B24301a; border-bottom:1px solid #1B24301a; }
+  .meta-item .label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.05em; color:#1B243088; margin-bottom:8px; }
+  .meta-item .value { font-size:15px; font-weight:500; }
+  .meta-item .value.ph { color:#DD5E1E; font-style:italic; }
+
+  section { padding:0 48px 100px; max-width:1000px; }
+  .section-label { display:flex; align-items:center; gap:12px; margin-bottom:28px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#DD5E1E; }
+  .section-label::after { content:""; flex:1; height:1px; background:#1B243022; }
+  h2 { font-family:'Fraunces',serif; font-size:34px; font-weight:600; line-height:1.2; max-width:760px; margin-bottom:24px; }
+  p.body-text { font-size:16px; line-height:1.75; color:#1B2430dd; max-width:680px; margin-bottom:20px; }
+  .ph-tag { display:inline-block; background:#DD5E1E22; color:#DD5E1E; font-family:'JetBrains Mono',monospace; font-size:12px; padding:3px 8px; border-radius:3px; font-style:italic; }
+
+  .img-single { margin:36px 0; max-width:420px; }
+  .img-single img { width:100%; border-radius:8px; display:block; }
+  figcaption { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; margin-top:12px; }
+
+  .step { display:grid; grid-template-columns:1fr 1.1fr; gap:48px; align-items:center; margin-bottom:80px; }
+  .step:nth-child(even) { direction:rtl; }
+  .step:nth-child(even) > div { direction:ltr; }
+  .step .step-num { font-family:'JetBrains Mono',monospace; font-size:13px; color:#DD5E1E; margin-bottom:12px; }
+  .step h3 { font-family:'Fraunces',serif; font-size:26px; font-weight:600; margin-bottom:14px; }
+  .step p { font-size:15px; line-height:1.7; color:#1B2430cc; }
+  .step img { width:100%; border-radius:8px; }
+
+  .outcome-img { margin:36px 0; }
+  .outcome-img img { width:100%; border-radius:8px; display:block; }
+
+  .learnings { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .learning-card { background:#fff; border-radius:8px; padding:32px; border:1px solid #1B24301a; }
+  .learning-card h4 { font-family:'Fraunces',serif; font-size:20px; margin-bottom:12px; }
+  .learning-card p { font-size:14px; line-height:1.65; color:#1B2430cc; }
+
+  .nav-footer { display:flex; justify-content:space-between; padding:48px 48px 80px; border-top:1px solid #1B24301a; font-family:'JetBrains Mono',monospace; font-size:13px; }
+  .nav-footer a { color:#1B2430; text-decoration:none; }
+  .nav-footer a:hover { color:#DD5E1E; }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="mark">Ari Berenson</div>
+  <div class="links"><a href="index.html">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
+</div>
+
+<div class="back"><a href="index.html">← Back to work</a></div>
+
+<div class="hero-wrap">
+  <div class="eyebrow">CASE STUDY — PRODUCT / UX DESIGN</div>
+  <h1 class="title">Picin</h1>
+  <p class="tagline">A dating and social app that requires a new selfie every 72 hours to keep engaging with other users — built to make catfishing structurally impossible instead of just discouraged.</p>
+</div>
+
+<div class="hero-img">
+  <img src="images/Picin_1.jpg" alt="Picin brand hero shot with denim jacket and flowers">
+</div>
+
+<div class="meta-row">
+  <div class="meta-item">
+    <div class="label">ROLE</div>
+    <div class="value">Creative Lead</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">TIMELINE</div>
+    <div class="value ph">[add timeline]</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">TEAM</div>
+    <div class="value ph">[add team / collaborators]</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">SKILLS</div>
+    <div class="value">Brand identity, UI/UX design, onboarding design, campaign design</div>
+  </div>
+</div>
+
+<section>
+  <div class="section-label">THE PROBLEM</div>
+  <h2>Dating apps have a trust problem. Photos go stale, get filtered, or belong to someone else entirely — and by the time you find out, you've already wasted an evening.</h2>
+  <p class="body-text"><span class="ph-tag">[Ari: replace with the real problem]</span> Existing dating apps let people build a profile once and coast on it indefinitely, which meant photos could be years old, heavily edited, or outright fake. How might we design a dating app where the person you're about to meet actually looks like their profile — without turning verification into a chore that kills the fun of the app?</p>
+</section>
+
+<section>
+  <div class="section-label">RESEARCH</div>
+  <h2>Key insights that shaped the design</h2>
+  <p class="body-text"><span class="ph-tag">[Ari: swap in real research findings — user interviews, competitor gaps, data points]</span> People don't distrust dating apps because they lack features — they distrust them because verification is an afterthought, not a habit. A one-time "verified" badge doesn't hold up over months of use. The insight: make re-verification a *recurring, built-in* part of using the app at all, so trust is refreshed automatically rather than something users have to seek out.</p>
+  <div class="img-single">
+    <img src="images/Picin_6.jpg" alt="Picin RIP Catfish mascot mark">
+    <figcaption>The "RIP Catfish" mark became the visual shorthand for the whole insight — this app kills catfishing by design.</figcaption>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">THE SOLUTION</div>
+  <h2>Build recurring selfie verification into the core loop, and give the brand a voice bold enough to make "no fake profiles" the whole pitch.</h2>
+
+  <div class="step">
+    <div>
+      <div class="step-num">01</div>
+      <h3>Make the 72-hour selfie a habit, not a hurdle</h3>
+      <p>Instead of a one-time verification step, Picin prompts users for a fresh selfie every 72 hours to keep browsing and matching. The prompts lean into the app's playful tone rather than feeling like a security checkpoint — "Wha happen?!" and "Where'd you go?" instead of a sterile "verification required" message.</p>
+    </div>
+    <img src="images/Picin_8.jpg" alt="Picin recurring selfie prompt onboarding flow">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">02</div>
+      <h3>Reward the habit instead of just enforcing it</h3>
+      <p>Going too long without a new selfie limits what a user can do in the app — but the messaging frames it as missing out on fun ("no likes yet," "no chats yet") rather than being punished, keeping the tone consistent with the brand's irreverent voice.</p>
+    </div>
+    <img src="images/Picin_2.jpg" alt="Picin empty state and gating screens">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">03</div>
+      <h3>Give matching real personality</h3>
+      <p><span class="ph-tag">[Ari: confirm/replace — describing the profile & match screens]</span> Profile cards surface compatibility across dating, fun, and lifestyle categories alongside shared interests, giving users more to go on than a photo and a one-line bio before deciding to match.</p>
+    </div>
+    <img src="images/Picin_4.jpg" alt="Picin profile and compatibility screens">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">04</div>
+      <h3>Let the brand voice carry the marketing</h3>
+      <p>The "RIP Catfish" mark and lines like "Date People. Not Profiles." turned the core verification feature into the entire brand story — used across paid social, out-of-home ads, and app store creative so the product's differentiator was never buried in fine print.</p>
+    </div>
+    <img src="images/Picin_5.jpg" alt="Picin social ad creative and campaign screens">
+  </div>
+</section>
+
+<section>
+  <div class="section-label">OUTCOME</div>
+  <h2>Turning a trust feature into a full brand identity</h2>
+  <p class="body-text"><span class="ph-tag">[Ari: add real outcome — launch markets, downloads, press, user feedback]</span> Picin launched with a full identity system built around its "RIP Catfish" mascot and campaign line, including out-of-home advertising in transit stations — putting the app's core promise ("date people, not profiles") directly in front of the exact audience tired of getting catfished elsewhere.</p>
+  <div class="outcome-img">
+    <img src="images/Picin_7.jpg" alt="Picin subway advertisement">
+    <figcaption>Out-of-home campaign placement in a Boston transit station.</figcaption>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">LEARNINGS</div>
+  <h2>Key takeaways</h2>
+  <div class="learnings">
+    <div class="learning-card">
+      <h4><span class="ph-tag">[Ari: real learning #1]</span></h4>
+      <p>Placeholder: something like — building trust into the product's core mechanic works better than bolting on a verification badge, because it can't go stale.</p>
+    </div>
+    <div class="learning-card">
+      <h4><span class="ph-tag">[Ari: real learning #2]</span></h4>
+      <p>Placeholder: something like — a strong, specific brand voice can carry a feature that would otherwise feel like friction, turning "we make you re-verify" into a reason to download the app.</p>
+    </div>
+  </div>
+</section>
+
+<div class="nav-footer">
+  <a href="agently.html">← Agently</a>
+  <a href="inmoji.html">Inmoji →</a>
+</div>
+
+</body>
+</html>
