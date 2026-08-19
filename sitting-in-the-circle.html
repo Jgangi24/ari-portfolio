@@ -7,32 +7,39 @@
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
   * { margin:0; padding:0; box-sizing:border-box; }
+  html { overflow-y: scroll; }
   body { font-family:'Space Grotesk',sans-serif; background:#F0F1ED; color:#1B2430; }
 
   .nav { display:flex; justify-content:space-between; align-items:center; padding:32px 48px; border-bottom:1px solid #1B24301a; }
   .nav .mark { font-family:'Fraunces',serif; font-size:20px; font-weight:600; }
+  .nav .mark img { height:66px; display:block; }
   .nav .links { display:flex; gap:32px; font-size:13px; font-weight:500; }
   .nav .links span:hover { color:#DD5E1E; cursor:pointer; }
 
-  .back { padding:28px 48px 0; }
+  .nav .links a { color:#1B2430; text-decoration:none; }
+  .nav .links a.current { color:#DD5E1E; }
+  .card, .card:hover, .card:visited { color:inherit; text-decoration:none; }
+  .card * { text-decoration:none; }
+
+  .back { padding:28px 48px 0; max-width:1000px; margin:0 auto;}
   .back a { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; text-decoration:none; }
   .back a:hover { color:#DD5E1E; }
 
-  .hero-wrap { padding:40px 48px 0; max-width:1000px; }
+  .hero-wrap { padding:40px 48px 0; max-width:1000px; margin:0 auto; }
   .eyebrow { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; background:#1B2430; color:#F0F1ED; padding:5px 12px; border-radius:2px; margin-bottom:24px; }
   h1.title { font-family:'Fraunces',serif; font-size:52px; font-weight:600; font-style:italic; line-height:1.1; letter-spacing:-0.01em; margin-bottom:10px; }
   .subtitle { font-family:'JetBrains Mono',monospace; font-size:13px; color:#1B243099; margin-bottom:28px; }
   .tagline { font-size:18px; line-height:1.7; color:#1B2430dd; max-width:640px; margin-bottom:56px; }
   .tagline .credit { color:#DD5E1E; font-style:italic; }
 
-  .cover-block { display:grid; grid-template-columns:1fr 1fr; gap:32px; padding:0 48px; max-width:1000px; margin-bottom:100px; align-items:stretch; }
+  .cover-block { display:grid; grid-template-columns:1fr 1fr; gap:32px; padding:0 48px; max-width:1000px; margin:0 auto 100px; align-items:stretch; }
   .cover-block .wheel { background:#fff; border-radius:8px; padding:40px; display:flex; align-items:center; justify-content:center; height:420px; }
   .cover-block .wheel img { width:85%; display:block; }
   .cover-block .box { display:flex; flex-direction:column; }
   .cover-block .box img { width:100%; height:420px; object-fit:contain; background:#fff; border-radius:8px; display:block; }
   figcaption { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; margin-top:14px; }
 
-  section { padding:0 48px 100px; max-width:1000px; }
+  section { padding:0 48px 100px; max-width:1000px; margin:0 auto; }
   .section-label { display:flex; align-items:center; gap:12px; margin-bottom:32px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#DD5E1E; }
   .section-label::after { content:""; flex:1; height:1px; background:#1B243022; }
 
@@ -53,11 +60,10 @@
 <body>
 
 <div class="nav">
-  <div class="mark">Ari Berenson</div>
+  <a href="index.html" class="mark"><img src="images/Ari-Berenson_Logo_Transparent-BG.png" alt="Ari Berenson" width="111" height="66"></a>
   <div class="links"><a href="index.html">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
 </div>
 
-<div class="back"><a href="index.html">← Back to work</a></div>
 
 <div class="hero-wrap">
   <div class="eyebrow">ILLUSTRATION &amp; BOOK DESIGN</div>

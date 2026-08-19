@@ -7,42 +7,60 @@
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
   * { margin:0; padding:0; box-sizing:border-box; }
+  html { overflow-y: scroll; }
   body { font-family:'Space Grotesk',sans-serif; background:#F0F1ED; color:#1B2430; }
 
   .nav { display:flex; justify-content:space-between; align-items:center; padding:32px 48px; border-bottom:1px solid #1B24301a; }
   .nav .mark { font-family:'Fraunces',serif; font-size:20px; font-weight:600; }
+  .nav .mark img { height:66px; display:block; }
   .nav .links { display:flex; gap:32px; font-size:13px; font-weight:500; letter-spacing:0.02em; }
   .nav .links span { cursor:pointer; }
   .nav .links span:hover { color:#DD5E1E; }
 
-  .hero { padding:110px 48px 90px; max-width:960px; }
+  .nav .links a { color:#1B2430; text-decoration:none; }
+  .nav .links a.current { color:#DD5E1E; }
+  .card, .card:hover, .card:visited { color:inherit; text-decoration:none; }
+  .card * { text-decoration:none; }
+
+  .hero { padding:56px 48px 60px; max-width:1400px; margin:0 auto; }
   .eyebrow { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; background:#1B2430; color:#F0F1ED; padding:5px 12px; border-radius:2px; margin-bottom:28px; }
   h1 { font-family:'Fraunces',serif; font-size:78px; font-weight:600; line-height:1.02; letter-spacing:-0.01em; }
   h1 .accent { color:#DD5E1E; font-style:italic; }
-  .sub { margin-top:28px; font-size:19px; line-height:1.6; color:#1B2430cc; max-width:540px; }
+  .sub { margin-top:28px; font-size:19px; line-height:1.6; color:#1B2430cc; max-width:1050px; }
 
-  .section-label { display:flex; align-items:center; gap:12px; margin:0 48px 24px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#1B243088; }
+  .section-label { display:flex; align-items:center; gap:12px; padding:0 48px; max-width:1400px; margin:0 auto 20px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#1B243088; }
   .section-label::after { content:""; flex:1; height:1px; background:#1B243022; }
 
-  .grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:0 48px 100px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; padding:0 48px; max-width:1400px; margin:0 auto 100px; }
   .card {
-    background:#fff; border:1px solid #1B24301a; padding:36px; min-height:230px;
-    position:relative; border-radius:6px; transition:transform .25s ease, box-shadow .25s ease;
-    cursor:pointer; overflow:hidden;
+    position:relative; height:460px; border-radius:6px; overflow:hidden;
+    cursor:pointer; display:block; transition:transform .25s ease, box-shadow .25s ease;
   }
-  .card:hover { transform:translateY(-6px) rotate(-0.3deg); box-shadow:0 16px 32px -12px #1B243033; }
-  .card.pink { background:#DD5E1E; color:#fff; }
-  .card.teal { background:#3F6B62; color:#fff; }
-
-  .legend { display:flex; gap:28px; margin:0 48px 32px; font-size:13px; align-items:center; }
-  .legend .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:middle; }
-  .card.ink { background:#1B2430; color:#F0F1ED; }
-  .card .num { font-family:'JetBrains Mono',monospace; font-size:12px; opacity:0.55; }
-  .card .tag { position:absolute; top:36px; right:36px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.04em; opacity:0.6; }
-  .card h3 { font-family:'Fraunces',serif; font-size:32px; font-weight:600; margin-top:64px; }
-  .card p { font-size:14px; margin-top:10px; opacity:0.7; max-width:320px; }
-  .card .arrow { position:absolute; bottom:32px; right:36px; font-size:20px; transition:transform .25s ease; }
+  .card:hover { transform:translateY(-6px) rotate(-0.3deg); box-shadow:0 16px 32px -12px #1B243055; }
+  .card .thumb { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+  .card:hover .thumb { transform:scale(1.06); }
+  .card .overlay {
+    position:absolute; inset:0; background:#1B2430cc; opacity:0; transition:opacity .3s ease;
+    padding:28px; display:flex; flex-direction:column; justify-content:space-between; color:#F0F1ED;
+  }
+  .card:hover .overlay { opacity:1; }
+  .overlay-top { display:flex; justify-content:space-between; align-items:flex-start; }
+  .card .num { font-family:'JetBrains Mono',monospace; font-size:12px; opacity:0.7; }
+  .card .tag { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.04em; color:#DD5E1E; }
+  .card .tag .dot { background:#DD5E1E; }
+  .card.ink .tag { color:#F0CC72; }
+  .card.ink .tag .dot { background:#F0CC72; }
+  .card.teal .tag { color:#8FD9C4; }
+  .card.teal .tag .dot { background:#8FD9C4; }
+  .overlay-bottom { position:relative; }
+  .card h3 { font-family:'Fraunces',serif; font-size:28px; font-weight:600; }
+  .card p { font-size:13px; margin-top:8px; opacity:0.85; max-width:320px; }
+  .card .arrow { position:absolute; bottom:0; right:0; font-size:20px; transition:transform .25s ease; }
   .card:hover .arrow { transform:translateX(4px); }
+
+  .legend { display:flex; gap:28px; padding:0 48px; max-width:1400px; margin:0 auto 32px; font-size:13px; align-items:center; }
+  .legend .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:middle; }
+  .card .tag .dot { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; vertical-align:middle; }
 
   .footer-note { margin:0 48px 60px; font-family:'JetBrains Mono',monospace; font-size:11px; color:#1B243066; }
 </style>
@@ -50,79 +68,151 @@
 <body>
 
 <div class="nav">
-  <div class="mark">Ari Berenson</div>
-  <div class="links"><a href="index.html">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
+  <a href="index.html" class="mark"><img src="images/Ari-Berenson_Logo_Transparent-BG.png" alt="Ari Berenson" width="111" height="66"></a>
+  <div class="links"><a href="index.html" class="current">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
 </div>
 
 <div class="hero">
-  <div class="eyebrow">PRODUCT &amp; UI/UX DESIGNER — 10+ YEARS</div>
-  <h1>15+ years of turning<br>ambiguity into <span class="accent">interfaces that hold up.</span></h1>
-  <p class="sub">I partner with startups and global brands to design products people actually want to use — from dating apps to AR ad platforms to retail launches.</p>
+  <div class="eyebrow">PRODUCT &amp; UI/UX DESIGNER — 15+ YEARS</div>
+  <h1>15+ years of turning ambiguity<br>into <span class="accent">interfaces that hold up.</span></h1>
+  <p class="sub">I partner with startups and global brands to design products people actually want to use —<br>from dating apps to AR ad platforms to retail launches.</p>
 </div>
 
 <div class="section-label">SELECTED WORK</div>
 
 <div class="legend">
   <span><span class="dot" style="background:#DD5E1E"></span>Product / UX Design</span>
-  <span><span class="dot" style="background:#1B2430"></span>Brand &amp; Campaign</span>
+  <span><span class="dot" style="background:#B8912F"></span>Brand &amp; Campaign</span>
   <span><span class="dot" style="background:#3F6B62"></span>Illustration / Personal</span>
 </div>
 
 <div class="grid">
   <a href="agently.html" class="card">
-    <div class="num">01</div>
-    <div class="tag">PRODUCT / UX</div>
-    <h3>Agently</h3>
-    <p>Recommendation &amp; messaging platform for real estate agents</p>
-    <div class="arrow">↗</div></a>
+    <img class="thumb" src="images/Agently_2.jpg" alt="Agently">
+    <div class="overlay">
+      <div class="overlay-top">
+        <div class="num">01</div>
+        <div class="tag"><span class="dot"></span>PRODUCT / UX</div>
+      </div>
+      <div class="overlay-bottom">
+        <h3>Agently</h3>
+        <p>Recommendation &amp; messaging platform for real estate agents</p>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </a>
   <a href="picin.html" class="card">
-    <div class="num">02</div>
-    <div class="tag">PRODUCT / UX</div>
-    <h3>Picin</h3>
-    <p>A dating app built around real, unfiltered selfies</p>
-    <div class="arrow">↗</div></a>
+    <img class="thumb" src="images/Picin_1.jpg" alt="Picin">
+    <div class="overlay">
+      <div class="overlay-top">
+        <div class="num">02</div>
+        <div class="tag"><span class="dot"></span>PRODUCT / UX</div>
+      </div>
+      <div class="overlay-bottom">
+        <h3>Picin</h3>
+        <p>A dating app built around real, unfiltered selfies</p>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </a>
   <a href="inmoji.html" class="card">
-    <div class="num">03</div>
-    <div class="tag">PRODUCT / UX</div>
-    <h3>Inmoji</h3>
-    <p>Ad-tech platform for branded AR &amp; messaging content</p>
-    <div class="arrow">↗</div></a>
+    <img class="thumb" src="images/Inmoji-TitleSample.webp" alt="Inmoji">
+    <div class="overlay">
+      <div class="overlay-top">
+        <div class="num">03</div>
+        <div class="tag"><span class="dot"></span>PRODUCT / UX</div>
+      </div>
+      <div class="overlay-bottom">
+        <h3>Inmoji</h3>
+        <p>Ad-tech platform for branded AR &amp; messaging content</p>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </a>
   <a href="newbalance-vazee.html" class="card ink">
-    <div class="num">04</div>
-    <div class="tag">BRAND / CAMPAIGN</div>
-    <h3>New Balance: VAZEE Launch</h3>
-    <p>Global product launch across print, digital &amp; retail</p>
-    <div class="arrow">↗</div></a>
+    <img class="thumb" src="images/VAZEE-Jenny-WorkSample.webp" alt="New Balance: VAZEE Launch">
+    <div class="overlay">
+      <div class="overlay-top">
+        <div class="num">04</div>
+        <div class="tag"><span class="dot"></span>BRAND / CAMPAIGN</div>
+      </div>
+      <div class="overlay-bottom">
+        <h3>New Balance: VAZEE Launch</h3>
+        <p>Global product launch across print, digital &amp; retail</p>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </a>
   <a href="mynb.html" class="card">
-    <div class="num">05</div>
-    <div class="tag">PRODUCT / UX</div>
-    <h3>MyNB</h3>
-    <p>Tiered loyalty &amp; rewards app for New Balance</p>
-    <div class="arrow">↗</div></a>
+    <img class="thumb" src="images/american-portraiture-1.webp" alt="MyNB">
+    <div class="overlay">
+      <div class="overlay-top">
+        <div class="num">05</div>
+        <div class="tag"><span class="dot"></span>PRODUCT / UX</div>
+      </div>
+      <div class="overlay-bottom">
+        <h3>MyNB</h3>
+        <p>Tiered loyalty &amp; rewards app for New Balance</p>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </a>
   <a href="tigerlily.html" class="card ink">
-    <div class="num">06</div>
-    <div class="tag">BRAND IDENTITY</div>
-    <h3>Tiger Lily Granola</h3>
-    <p>Brand identity for a small-batch food company</p>
-    <div class="arrow">↗</div></a>
+    <img class="thumb" src="images/TigerLily_Truck.webp" alt="Tiger Lily Granola">
+    <div class="overlay">
+      <div class="overlay-top">
+        <div class="num">06</div>
+        <div class="tag"><span class="dot"></span>BRAND IDENTITY</div>
+      </div>
+      <div class="overlay-bottom">
+        <h3>Tiger Lily Granola</h3>
+        <p>Brand identity for a small-batch food company</p>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </a>
   <a href="sitting-in-the-circle.html" class="card teal">
-    <div class="num">07</div>
-    <div class="tag">ILLUSTRATION</div>
-    <h3>Sitting In The Circle</h3>
-    <p>Book cover &amp; interior illustrations for a collection of essays</p>
-    <div class="arrow">↗</div></a>
+    <img class="thumb" src="images/img3.webp" alt="Sitting In The Circle">
+    <div class="overlay">
+      <div class="overlay-top">
+        <div class="num">07</div>
+        <div class="tag"><span class="dot"></span>ILLUSTRATION</div>
+      </div>
+      <div class="overlay-bottom">
+        <h3>Sitting In The Circle</h3>
+        <p>Book cover &amp; interior illustrations for a collection of essays</p>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </a>
   <a href="bydoctors.html" class="card ink">
-    <div class="num">08</div>
-    <div class="tag">BRAND IDENTITY</div>
-    <h3>By Doctors</h3>
-    <p>Brand &amp; packaging system for a CBD wellness line</p>
-    <div class="arrow">↗</div></a>
+    <img class="thumb" src="images/CBD-Suite.webp" alt="By Doctors">
+    <div class="overlay">
+      <div class="overlay-top">
+        <div class="num">08</div>
+        <div class="tag"><span class="dot"></span>BRAND IDENTITY</div>
+      </div>
+      <div class="overlay-bottom">
+        <h3>By Doctors</h3>
+        <p>Brand &amp; packaging system for a CBD wellness line</p>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </a>
   <a href="weom.html" class="card ink">
-    <div class="num">09</div>
-    <div class="tag">BRAND IDENTITY</div>
-    <h3>WEOM</h3>
-    <p>Logo &amp; identity for a members-style social club</p>
-    <div class="arrow">↗</div></a>
+    <img class="thumb" src="images/WEOM_Apparel_TENNIS.webp" alt="WEOM">
+    <div class="overlay">
+      <div class="overlay-top">
+        <div class="num">09</div>
+        <div class="tag"><span class="dot"></span>BRAND IDENTITY</div>
+      </div>
+      <div class="overlay-bottom">
+        <h3>WEOM</h3>
+        <p>Logo &amp; identity for a members-style social club</p>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </a>
 </div>
 
 <div class="footer-note">Hover the cards — motion is part of the point, not decoration.</div>
