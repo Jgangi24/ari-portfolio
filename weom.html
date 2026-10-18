@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>WEOM — Brand Identity</title>
 <link rel="stylesheet" href="lightbox.css">
 <style>
@@ -31,7 +32,7 @@
   section { padding:0 48px 90px; max-width:1000px; margin:0 auto; }
   .section-label { display:flex; align-items:center; gap:12px; margin-bottom:32px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#DD5E1E; }
   .section-label::after { content:""; flex:1; height:1px; background:#1B243022; }
-  .logo-variants { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:16px; }
+  .logo-variants { display:grid; grid-template-columns:1fr 2fr; gap:16px; margin-bottom:16px; }
   .logo-variants .swatch { background:#fff; border-radius:8px; padding:32px; display:flex; align-items:center; justify-content:center; min-height:160px; }
   .logo-variants .swatch.dark { background:#1B2430; }
   .logo-variants img { max-width:100%; display:block; }
@@ -43,6 +44,7 @@
   .nav-footer a { color:#1B2430; text-decoration:none; }
   .nav-footer a:hover { color:#DD5E1E; }
 </style>
+<link rel="stylesheet" href="responsive.css">
 </head>
 <body>
 
@@ -51,6 +53,8 @@
   <div class="links"><a href="index.html">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
 </div>
 
+
+<div class="back"><a href="index.html">← Back to Work</a></div>
 
 <div class="hero-wrap">
   <div class="eyebrow">BRAND IDENTITY</div>
@@ -63,8 +67,7 @@
   <div class="section-label">IDENTITY</div>
   <div class="logo-variants">
     <div class="swatch"><img src="images/WEOM-Logo_red.webp" alt="WEOM primary red logo"></div>
-    <div class="swatch dark"><img src="images/WEOM-AltLogos.webp" alt="WEOM logo colorway variations"></div>
-    <div class="swatch"><img src="images/WEOM-AltLogos.webp" alt="WEOM logo colorway variations"></div>
+    <div class="swatch dark"><img src="images/WEOM-AltLogos.webp" alt="WEOM logo colorway variations — black, white, and green"></div>
   </div>
   <figcaption>The primary mark, plus a flexible colorway system — black, white, and green — for different applications.</figcaption>
 </section>

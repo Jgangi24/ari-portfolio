@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global Search Optimization — CVS Health — Case Study</title>
+<link rel="stylesheet" href="lightbox.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { overflow-y: scroll; }
+  body { font-family:'Space Grotesk',sans-serif; background:#F0F1ED; color:#1B2430; }
+
+  .nav { display:flex; justify-content:space-between; align-items:center; padding:32px 48px; border-bottom:1px solid #1B24301a; }
+  .nav .mark { font-family:'Fraunces',serif; font-size:20px; font-weight:600; }
+  .nav .mark img { height:66px; display:block; }
+  .nav .links { display:flex; gap:32px; font-size:13px; font-weight:500; }
+  .nav .links span:hover { color:#DD5E1E; cursor:pointer; }
+
+  .nav .links a { color:#1B2430; text-decoration:none; }
+  .nav .links a.current { color:#DD5E1E; }
+
+  .back { padding:28px 48px 0; max-width:1000px; margin:0 auto;}
+  .back a { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; text-decoration:none; }
+  .back a:hover { color:#DD5E1E; }
+
+  .hero-wrap { padding:40px 48px 0; max-width:1000px; margin:0 auto; }
+  .eyebrow { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; background:#1B2430; color:#F0F1ED; padding:5px 12px; border-radius:2px; margin-bottom:24px; }
+  h1.title { font-family:'Fraunces',serif; font-size:56px; font-weight:600; line-height:1.05; letter-spacing:-0.01em; margin-bottom:16px; }
+  .tagline { font-size:19px; line-height:1.6; color:#1B2430cc; max-width:640px; margin-bottom:48px; }
+  .proto-link { display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; color:#F0F1ED; background:#1B2430; padding:11px 18px; border-radius:4px; text-decoration:none; margin-bottom:48px; transition:background .2s ease; }
+  .proto-link:hover { background:#DD5E1E; }
+  .proto-link svg { width:14px; height:14px; flex-shrink:0; }
+
+  .hero-img { width:calc(100% - 96px); max-width:1100px; margin:0 auto 64px; display:block; border-radius:8px; overflow:hidden; }
+  .hero-img img { width:100%; display:block; border-radius:8px; }
+  .img-ph { width:100%; min-height:340px; border-radius:8px; background:repeating-linear-gradient(135deg,#1B24300f,#1B24300f 12px,#1B24301c 12px,#1B24301c 24px); border:1px dashed #1B243044; display:flex; align-items:center; justify-content:center; text-align:center; padding:24px; }
+  .img-ph span { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; font-style:italic; max-width:320px; }
+  .img-pair .img-ph, .step .img-ph { min-height:260px; }
+
+  .meta-row { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin:0 auto 90px; width:calc(100% - 96px); max-width:904px; padding:32px 0; border-top:1px solid #1B24301a; border-bottom:1px solid #1B24301a; }
+  .meta-item .label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.05em; color:#1B243088; margin-bottom:8px; }
+  .meta-item .value { font-size:15px; font-weight:500; }
+  .meta-item .value.ph { color:#DD5E1E; font-style:italic; }
+
+  section { padding:0 48px 100px; max-width:1000px; margin:0 auto; }
+  .section-label { display:flex; align-items:center; gap:12px; margin-bottom:28px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#DD5E1E; }
+  .section-label::after { content:""; flex:1; height:1px; background:#1B243022; }
+  h2 { font-family:'Fraunces',serif; font-size:34px; font-weight:600; line-height:1.2; max-width:760px; margin-bottom:24px; }
+  p.body-text { font-size:16px; line-height:1.75; color:#1B2430dd; max-width:680px; margin-bottom:20px; }
+  .ph-tag { display:inline-block; background:#DD5E1E22; color:#DD5E1E; font-family:'JetBrains Mono',monospace; font-size:12px; padding:3px 8px; border-radius:3px; font-style:italic; }
+
+  .img-pair { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:36px 0; }
+  .img-pair img, .img-single img { width:100%; border-radius:8px; display:block; }
+  .img-single { margin:36px 0; }
+  figcaption { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; margin-top:12px; }
+
+  .step { display:grid; grid-template-columns:1fr 1.1fr; gap:48px; align-items:center; margin-bottom:80px; }
+  .step:nth-child(even) { direction:rtl; }
+  .step:nth-child(even) > div:first-child { direction:ltr; }
+  .step .step-num { font-family:'JetBrains Mono',monospace; font-size:13px; color:#DD5E1E; margin-bottom:12px; }
+  .step h3 { font-family:'Fraunces',serif; font-size:26px; font-weight:600; margin-bottom:14px; }
+  .step p { font-size:15px; line-height:1.7; color:#1B2430cc; }
+  .step img { width:100%; border-radius:8px; }
+
+  .learnings { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .learning-card { background:#fff; border-radius:8px; padding:32px; border:1px solid #1B24301a; }
+  .learning-card h4 { font-family:'Fraunces',serif; font-size:20px; margin-bottom:12px; }
+  .learning-card p { font-size:14px; line-height:1.65; color:#1B2430cc; }
+
+  .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:36px 0 44px; }
+  .stat-card { background:#fff; border:1px solid #1B24301a; border-radius:8px; padding:28px 24px; }
+  .stat-card .num { font-family:'Fraunces',serif; font-size:42px; font-weight:600; color:#DD5E1E; line-height:1; margin-bottom:10px; }
+  .stat-card .desc { font-size:13.5px; line-height:1.5; color:#1B2430cc; }
+
+  .nav-footer { display:flex; justify-content:space-between; padding:48px 48px 80px; border-top:1px solid #1B24301a; font-family:'JetBrains Mono',monospace; font-size:13px; }
+  .nav-footer a { color:#1B2430; text-decoration:none; }
+  .nav-footer a:hover { color:#DD5E1E; }
+</style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html" class="mark"><img src="images/Ari-Berenson_Logo_Transparent-BG.png" alt="Ari Berenson" width="111" height="66"></a>
+  <div class="links"><a href="index.html">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
+</div>
+
+
+<div class="back"><a href="cvs-health-super-app.html">← CVS Health Super App</a></div>
+
+<div class="hero-wrap">
+  <div class="eyebrow">CASE STUDY — ENTERPRISE UX / DESIGN SYSTEMS</div>
+  <h1 class="title">Global Search Optimization</h1>
+  <p class="tagline">Unifying search across CVS Health's MinuteClinic, Pharmacy, Drug, and Retail experiences — one enterprise-wide result screen designed to stay accurate, accessible, and honest about what it's showing.</p>
+</div>
+
+<div class="hero-img">
+  <img src="images/cvs/search-tablet-flow.jpg" alt="Search flow on tablet: home, search view with suggestions, and typeahead results">
+</div>
+
+<div class="meta-row meta-roles">
+  <div class="meta-item">
+    <div class="label">CLIENT</div>
+    <div class="value">CVS Health</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">ROLE</div>
+    <div class="value role">Senior Experience Designer
+      <div class="role-line"><span class="role-tag">Lead:</span> Global Search</div>
+    </div>
+  </div>
+  <div class="meta-item">
+    <div class="label">TIMELINE</div>
+    <div class="value">2020–2026</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">SKILLS</div>
+    <div class="value">Enterprise UX, design systems, content strategy, accessibility (A11y)</div>
+  </div>
+</div>
+
+<section>
+  <div class="section-label">THE PROBLEM</div>
+  <h2>Four business units, four search experiences — and no shared answer for what a single query should return.</h2>
+  <p class="body-text">MinuteClinic, Pharmacy, Drug information, and Retail Products had each grown their own standalone search inside their own CVS Health apps, with their own logic for ranking, presenting, and labeling results. A single query — a symptom, a drug name, a product — could mean something different depending on which app it was typed into, and there was no enterprise-wide experience that considered a user who needed more than one of those business units at once. The ask was to consolidate all four into a single, unified search experience.</p>
+</section>
+
+<section>
+  <div class="section-label">THE APPROACH</div>
+  <h2>Design one configurable template that works for a single-BU lookup and a multi-BU health question alike, without blurring the two together.</h2>
+
+  <div class="step">
+    <div>
+      <div class="step-num">01</div>
+      <h3>A configurable results template</h3>
+      <p>Rather than four separate result screens, the solution centers on one new, configurable search results template that every business unit plugs into — giving CVS Health a single pattern to maintain and extend as new lines of business come online, instead of four (or more) to keep in sync.</p>
+    </div>
+    <img src="images/cvs/search-ios-components.jpg" alt="iOS search components: filters, sort options, product cards, and grouped list rows">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">02</div>
+      <h3>Designing for both ends of intent</h3>
+      <p>The components had to hold up for two very different searches: someone looking for one specific thing tied to a single business unit — a specific drug name — and someone with a broader, health-oriented query that legitimately spans multiple business units at once. The template flexes between a focused, single-source result and a multi-source result without asking the user to know in advance which kind of search they're doing.</p>
+    </div>
+    <img src="images/cvs/search-results-variants.jpg" alt="Search results heading variants for Health, Article, and Pharmacy results, plus a no-results state, at three screen widths">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">03</div>
+      <h3>Bucketed, not blended, results</h3>
+      <p>When a query does span multiple business units, results stay grouped in clearly labeled buckets by BU rather than being ranked into one intermingled list — so a Pharmacy result never reads as a MinuteClinic result, and users can tell at a glance where each answer is coming from.</p>
+    </div>
+    <img src="images/cvs/search-results-buckets.jpg" alt="Health results for allergies, with Shop, Health, Articles, and Pharmacy bucket links and their interaction states">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">04</div>
+      <h3>Content and accessibility as design constraints, not afterthoughts</h3>
+      <p>Content guidelines were built into the template itself, so language never implies medical treatment for a non-medical search — a Retail Product result doesn't read like clinical advice. In parallel, every native and pulse component was specced against accessibility (A11y) standards, so results remain fully navigable and understandable regardless of how they're prioritized or reordered on the page.</p>
+    </div>
+    <img src="images/cvs/search-ios-a11y.jpg" alt="iOS search screen annotated with accessibility labels, traits, and VoiceOver output">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">05</div>
+      <h3>Search that suggests, not just answers</h3>
+      <p>Beyond the results page, I designed ways to help people get to an answer before they finish typing. “Kickstarter” suggestions — an animated list of prompts, inspired by patterns from apps like Meta’s — sit at the top of the search view and are controlled by the business, so they can follow whatever the company is focused on that season.</p>
+      <p>“Discover” suggestions in typeahead surface common account questions — “Where do I view my order history?” — so people can help themselves instead of calling in.</p>
+    </div>
+    <img src="images/cvs/search-suggestions-mweb.jpg" alt="Mobile web search with a Suggestions row of tappable prompts that expands with See all">
+  </div>
+</section>
+
+<section>
+  <div class="section-label">OUTCOME</div>
+  <h2>Real gains in engagement — and fewer calls to the contact center</h2>
+  <p class="body-text">Once live, the unified search changed how people found answers. Results were finally accurate and clearly bucketed by business unit, so fewer people had to call in for something search should have surfaced.</p>
+  <p class="body-text">A year of refinement, plus new “Discover” suggestions, took search past its call-center goal: it now covers 77% of the top reasons people call, against a 70% target. <span class="ph-tag">[Ari: confirm which engagement and call-center numbers to feature — résumé says +15% / +25% / −10%; internal report shows 53% → 77% coverage]</span></p>
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="num">+15%</div>
+      <div class="desc">Increase in engagement within the search experience after the unified component launched</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">-10%</div>
+      <div class="desc">Reduction in primary call center intents, as accurate bucketed results answered questions search once missed</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">+25%</div>
+      <div class="desc">Growth in overall search engagement over the following 12 months of iteration</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">53% → 77%</div>
+      <div class="desc">Share of top call-center reasons that search can now answer (goal: 70%)</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">2x</div>
+      <div class="desc">Weekly visits for “Kickstarter” suggestions compared with the old trending terms</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">58%</div>
+      <div class="desc">Of people who open search engage with its components</div>
+    </div>
+  </div>
+  <div class="img-single">
+    <img src="images/cvs/search-ios-android.jpg" alt="The search view on iOS and Android: suggestion chips above trending searches, with the keyboard open">
+    <figcaption>The search view on iOS and Android — suggestions first, then trending searches.</figcaption>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">LEARNINGS</div>
+  <h2>Key takeaways</h2>
+  <div class="learnings">
+    <div class="learning-card">
+      <h4><span class="ph-tag">[Ari: real learning #1]</span></h4>
+      <p>Placeholder: something like — designing one configurable template for four business units meant negotiating shared rules (like bucketing and content tone) that no single BU owned on its own.</p>
+    </div>
+    <div class="learning-card">
+      <h4><span class="ph-tag">[Ari: real learning #2]</span></h4>
+      <p>Placeholder: something like — treating accessibility and content language as core requirements, not QA checklist items, changed how early in the process those decisions had to be made.</p>
+    </div>
+  </div>
+</section>
+
+<div class="nav-footer">
+  <a href="cvs-health-super-app.html">← CVS Health Super App</a>
+  <a href="agently.html">Agently →</a>
+</div>
+
+<footer>© Ari Berenson</footer>
+
+<script src="lightbox.js"></script>
+</body>
+</html>

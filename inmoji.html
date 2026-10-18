@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Inmoji — Case Study</title>
 <link rel="stylesheet" href="lightbox.css">
 <style>
@@ -26,15 +27,15 @@
   .back a { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; text-decoration:none; }
   .back a:hover { color:#DD5E1E; }
 
-  .hero-wrap { padding:40px 48px 0; max-width:1100px; margin:0 auto; }
+  .hero-wrap { padding:40px 48px 0; max-width:1000px; margin:0 auto; }
   .eyebrow { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; background:#1B2430; color:#F0F1ED; padding:5px 12px; border-radius:2px; margin-bottom:24px; }
   h1.title { font-family:'Fraunces',serif; font-size:56px; font-weight:600; line-height:1.05; letter-spacing:-0.01em; margin-bottom:16px; }
   .tagline { font-size:19px; line-height:1.6; color:#1B2430cc; max-width:640px; margin-bottom:48px; }
 
-  .hero-img { width:100%; max-width:1100px; margin:0 auto 64px; display:block; border-radius:8px; overflow:hidden; height:460px; }
+  .hero-img { width:calc(100% - 96px); max-width:1100px; margin:0 auto 64px; display:block; border-radius:8px; overflow:hidden; height:460px; }
   .hero-img img { width:100%; height:100%; object-fit:cover; object-position:50% 5%; display:block; }
 
-  .meta-row { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin:0 auto 90px; max-width:1000px; padding:32px 0; border-top:1px solid #1B24301a; border-bottom:1px solid #1B24301a; }
+  .meta-row { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin:0 auto 90px; width:calc(100% - 96px); max-width:904px; padding:32px 0; border-top:1px solid #1B24301a; border-bottom:1px solid #1B24301a; }
   .meta-item .label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.05em; color:#1B243088; margin-bottom:8px; }
   .meta-item .value { font-size:15px; font-weight:500; }
   .meta-item .value.ph { color:#DD5E1E; font-style:italic; }
@@ -71,6 +72,7 @@
   .nav-footer a { color:#1B2430; text-decoration:none; }
   .nav-footer a:hover { color:#DD5E1E; }
 </style>
+<link rel="stylesheet" href="responsive.css">
 </head>
 <body>
 
@@ -79,6 +81,8 @@
   <div class="links"><a href="index.html">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
 </div>
 
+
+<div class="back"><a href="index.html">← Back to Work</a></div>
 
 <div class="hero-wrap">
   <div class="eyebrow">CASE STUDY — PRODUCT / UX DESIGN</div>
@@ -195,6 +199,8 @@
   <a href="picin.html">← Picin</a>
   <a href="newbalance-vazee.html">New Balance: VAZEE Launch →</a>
 </div>
+
+<footer>© Ari Berenson</footer>
 
 <script src="lightbox.js"></script>
 </body>

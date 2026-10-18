@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ari Berenson — Hybrid Direction</title>
 <link rel="stylesheet" href="lightbox.css">
 <style>
@@ -40,6 +41,9 @@
   .card:hover { transform:translateY(-6px) rotate(-0.3deg); box-shadow:0 16px 32px -12px #1B243055; }
   .card .thumb { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
   .card:hover .thumb { transform:scale(1.06); }
+  .card .thumb-ph { position:absolute; inset:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; padding:24px; background:repeating-linear-gradient(135deg,#ffffff14,#ffffff14 12px,#ffffff0a 12px,#ffffff0a 24px); transition:transform .5s ease; }
+  .card:hover .thumb-ph { transform:scale(1.06); }
+  .card .thumb-ph span { font-family:'JetBrains Mono',monospace; font-size:11px; color:#ffffffaa; font-style:italic; }
   .card .overlay {
     position:absolute; inset:0; background:#1B2430cc; opacity:0; transition:opacity .3s ease;
     padding:28px; display:flex; flex-direction:column; justify-content:space-between; color:#F0F1ED;
@@ -65,6 +69,7 @@
 
   .footer-note { margin:0 48px 60px; font-family:'JetBrains Mono',monospace; font-size:11px; color:#1B243066; }
 </style>
+<link rel="stylesheet" href="responsive.css">
 </head>
 <body>
 
@@ -76,7 +81,7 @@
 <div class="hero">
   <div class="eyebrow">PRODUCT &amp; UI/UX DESIGNER — 15+ YEARS</div>
   <h1>15+ years of turning ambiguity<br>into <span class="accent">interfaces that hold up.</span></h1>
-  <p class="sub">I partner with startups and global brands to design products people actually want to use —<br>from dating apps to AR ad platforms to retail launches.</p>
+  <p class="sub">From global brands to dating apps to years in-house at CVS Health, I design products people actually want to use.<br>Versatile by habit — I'm happy in whatever lane the problem needs.</p>
 </div>
 
 <div class="section-label">SELECTED WORK</div>
@@ -88,11 +93,25 @@
 </div>
 
 <div class="grid">
+  <a href="cvs-health-super-app.html" class="card">
+    <img class="thumb" src="images/cvs/superapp-card.jpg" alt="CVS Health Super App">
+    <div class="overlay">
+      <div class="overlay-top">
+        <div class="num">01</div>
+        <div class="tag"><span class="dot"></span>ENTERPRISE UX</div>
+      </div>
+      <div class="overlay-bottom">
+        <h3>CVS Health Super App</h3>
+        <p>Four apps into one — onboarding, search &amp; navigation for a unified CVS Health experience</p>
+        <div class="arrow">↗</div>
+      </div>
+    </div>
+  </a>
   <a href="agently.html" class="card">
     <img class="thumb" src="images/Agently_2.jpg" alt="Agently">
     <div class="overlay">
       <div class="overlay-top">
-        <div class="num">01</div>
+        <div class="num">02</div>
         <div class="tag"><span class="dot"></span>PRODUCT / UX</div>
       </div>
       <div class="overlay-bottom">
@@ -106,7 +125,7 @@
     <img class="thumb" src="images/Picin_1.jpg" alt="Picin">
     <div class="overlay">
       <div class="overlay-top">
-        <div class="num">02</div>
+        <div class="num">03</div>
         <div class="tag"><span class="dot"></span>PRODUCT / UX</div>
       </div>
       <div class="overlay-bottom">
@@ -120,7 +139,7 @@
     <img class="thumb" src="images/Inmoji-TitleSample.webp" alt="Inmoji">
     <div class="overlay">
       <div class="overlay-top">
-        <div class="num">03</div>
+        <div class="num">04</div>
         <div class="tag"><span class="dot"></span>PRODUCT / UX</div>
       </div>
       <div class="overlay-bottom">
@@ -134,7 +153,7 @@
     <img class="thumb" src="images/VAZEE-Jenny-WorkSample.webp" alt="New Balance: VAZEE Launch">
     <div class="overlay">
       <div class="overlay-top">
-        <div class="num">04</div>
+        <div class="num">05</div>
         <div class="tag"><span class="dot"></span>BRAND / CAMPAIGN</div>
       </div>
       <div class="overlay-bottom">
@@ -148,7 +167,7 @@
     <img class="thumb" src="images/american-portraiture-1.webp" alt="MyNB">
     <div class="overlay">
       <div class="overlay-top">
-        <div class="num">05</div>
+        <div class="num">06</div>
         <div class="tag"><span class="dot"></span>PRODUCT / UX</div>
       </div>
       <div class="overlay-bottom">
@@ -162,7 +181,7 @@
     <img class="thumb" src="images/TigerLily_Truck.webp" alt="Tiger Lily Granola">
     <div class="overlay">
       <div class="overlay-top">
-        <div class="num">06</div>
+        <div class="num">07</div>
         <div class="tag"><span class="dot"></span>BRAND IDENTITY</div>
       </div>
       <div class="overlay-bottom">
@@ -176,7 +195,7 @@
     <img class="thumb" src="images/img3.webp" alt="Sitting In The Circle">
     <div class="overlay">
       <div class="overlay-top">
-        <div class="num">07</div>
+        <div class="num">08</div>
         <div class="tag"><span class="dot"></span>ILLUSTRATION</div>
       </div>
       <div class="overlay-bottom">
@@ -190,7 +209,7 @@
     <img class="thumb" src="images/CBD-Suite.webp" alt="By Doctors">
     <div class="overlay">
       <div class="overlay-top">
-        <div class="num">08</div>
+        <div class="num">09</div>
         <div class="tag"><span class="dot"></span>BRAND IDENTITY</div>
       </div>
       <div class="overlay-bottom">
@@ -204,7 +223,7 @@
     <img class="thumb" src="images/WEOM_Apparel_TENNIS.webp" alt="WEOM">
     <div class="overlay">
       <div class="overlay-top">
-        <div class="num">09</div>
+        <div class="num">10</div>
         <div class="tag"><span class="dot"></span>BRAND IDENTITY</div>
       </div>
       <div class="overlay-bottom">

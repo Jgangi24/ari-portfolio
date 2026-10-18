@@ -1,0 +1,125 @@
+/* Phone and tablet layout, shared by every page.
+   Desktop styles live inside each page; this file only changes things on smaller screens. */
+
+img { max-width:100%; }
+
+/* Info row with several roles: the Role column fits its text, so each role stays on one line */
+@media (min-width: 901px) {
+  .meta-row.meta-roles { grid-template-columns:minmax(0,0.8fr) minmax(224px,max-content) minmax(0,0.8fr) minmax(0,1.3fr); }
+  .meta-row.meta-roles .role-line { white-space:nowrap; }
+}
+
+/* Labels: orange. Everything else: black. Used for roles (Lead, Contributor, Designer) and RESULT. */
+.meta-item .value.role .role-line { margin-top:6px; }
+.role-tag, .result-tag { color:#DD5E1E; }
+.result-tag { font-weight:500; }
+
+/* Footer used on every page (some pages define it themselves) */
+footer { padding:40px 48px; border-top:1px solid #1B24301a; font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; }
+
+/* ---------- Desktop alignment: footer links sit in the same column as the page content ---------- */
+@media (min-width: 901px) {
+  .nav-footer, footer {
+    padding-left:max(48px, calc((100% - 1000px) / 2 + 48px));
+    padding-right:max(48px, calc((100% - 1000px) / 2 + 48px));
+  }
+}
+
+/* ---------- Tablet and below ---------- */
+@media (max-width: 900px) {
+  /* Side padding: 48px is too much on a small screen */
+  .nav, .nav-footer, footer, .hero, .hero-wrap, section, .clients, form,
+  .about-grid, .cover-block, .grid, .legend, .back, body > .section-label {
+    padding-left:24px; padding-right:24px;
+  }
+  .hero-img { width:calc(100% - 48px); padding:0; }
+
+  .nav { padding-top:20px; padding-bottom:20px; flex-wrap:wrap; gap:12px; }
+  .nav .mark img { height:48px; width:auto; }
+  .nav .links { gap:20px; }
+
+  /* Headlines */
+  h1 { font-size:52px; }
+  h1.title { font-size:40px; margin-bottom:20px; }
+  h2 { font-size:28px; }
+  .tagline, .sub { font-size:17px; }
+  .hero { padding-top:36px; padding-bottom:40px; }
+  .hero-wrap { padding-top:28px; }
+  section { padding-bottom:64px; }
+
+  /* Two-column layouts become one column */
+  .step, .split, .img-pair, .learnings, .gallery, .app-grid, .row,
+  .cover-block, .about-grid, .logo-variants, .tier-pair {
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  .step { margin-bottom:56px; direction:ltr !important; }
+  .step > div:first-child { direction:ltr !important; }
+  .split img { max-width:200px; }
+  .about-grid { gap:32px; }
+  .cover-block .wheel { height:auto; min-height:260px; padding:24px; }
+
+  /* Grids of cards */
+  .stat-row, .stat-row.four, .outcome-grid { grid-template-columns:1fr 1fr; gap:16px; }
+  .meta-row { grid-template-columns:1fr 1fr; gap:24px 16px; margin:0 24px 56px; width:auto; max-width:none; }
+  .grid { grid-template-columns:1fr 1fr; gap:16px; margin-bottom:64px; }
+  .card { height:340px; }
+
+  /* Row of phone screens scrolls sideways instead of squeezing */
+  .phone-row { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x proximity; padding-bottom:12px; -webkit-overflow-scrolling:touch; }
+  .phone-row figure { flex:0 0 34%; min-width:170px; scroll-snap-align:start; }
+
+  .compare { grid-template-columns:minmax(0,1fr); gap:12px; }
+  .compare > * { min-width:0; }
+  .step > * { min-width:0; }
+  .compare-arrow { justify-self:center; transform:rotate(90deg); }
+  .compare-col.before figure { max-width:240px; margin:0 auto; }
+  .after-row { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x proximity; padding-bottom:10px; -webkit-overflow-scrolling:touch; }
+  .after-row figure { flex:0 0 38%; min-width:160px; scroll-snap-align:start; }
+  .deep-dive-card { grid-template-columns:1fr; gap:20px; padding:18px; }
+  .testing figure img { max-width:220px; }
+  .logo-showcase { padding:28px; min-height:240px; }
+  .gallery-item { padding:20px; min-height:200px; }
+
+  .nav-footer { flex-wrap:wrap; gap:16px; }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 560px) {
+  h1 { font-size:36px; }
+  h1.title { font-size:32px; }
+  h2 { font-size:24px; }
+  p.body-text, .bio p { font-size:15.5px; }
+  .tagline, .sub { font-size:16px; }
+
+  .nav .links { gap:14px; font-size:12px; }
+  .nav .mark img { height:40px; }
+
+  .stat-row, .stat-row.four, .outcome-grid, .meta-row { grid-template-columns:1fr; }
+  .stat-card .num, .stat-row.four .stat-card .num { font-size:34px; }
+  .grid { grid-template-columns:1fr; }
+  .card { height:300px; }
+
+  .phone-row figure { flex-basis:58%; }
+  .after-row figure { flex-basis:62%; }
+  .hero-img[style*="height"], .hero-img { height:auto; }
+  .hero-img img { height:auto; }
+
+  .learning-card { padding:24px; }
+  .logo-showcase { padding:16px; min-height:200px; }
+  .legend { flex-wrap:wrap; gap:10px 18px; }
+  .client-list { gap:12px 24px; }
+  .client-list span { font-size:19px; }
+}
+
+/* ---------- Touch screens: there's no hover, so show the card titles ---------- */
+@media (hover: none) {
+  .card .overlay {
+    opacity:1;
+    background:
+      linear-gradient(to bottom, #1B2430aa 0%, #1B243000 28%),
+      linear-gradient(to top, #1B2430ee 0%, #1B243099 35%, #1B243000 70%);
+  }
+  .card:hover { transform:none; box-shadow:none; }
+  .footer-note { display:none; }
+}
