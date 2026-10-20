@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Global Navigation — CVS Health — Case Study</title>
+<link rel="stylesheet" href="lightbox.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { overflow-y: scroll; }
+  body { font-family:'Space Grotesk',sans-serif; background:#F0F1ED; color:#1B2430; }
+
+  .nav { display:flex; justify-content:space-between; align-items:center; padding:32px 48px; border-bottom:1px solid #1B24301a; }
+  .nav .mark { font-family:'Fraunces',serif; font-size:20px; font-weight:600; }
+  .nav .mark img { height:66px; display:block; }
+  .nav .links { display:flex; gap:32px; font-size:13px; font-weight:500; }
+  .nav .links span:hover { color:#DD5E1E; cursor:pointer; }
+
+  .nav .links a { color:#1B2430; text-decoration:none; }
+  .nav .links a.current { color:#DD5E1E; }
+
+  .back { padding:28px 48px 0; max-width:1000px; margin:0 auto;}
+  .back a { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; text-decoration:none; }
+  .back a:hover { color:#DD5E1E; }
+
+  .hero-wrap { padding:40px 48px 0; max-width:1000px; margin:0 auto; }
+  .eyebrow { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; background:#1B2430; color:#F0F1ED; padding:5px 12px; border-radius:2px; margin-bottom:24px; }
+  h1.title { font-family:'Fraunces',serif; font-size:56px; font-weight:600; line-height:1.05; letter-spacing:-0.01em; margin-bottom:16px; }
+  .tagline { font-size:19px; line-height:1.6; color:#1B2430cc; max-width:640px; margin-bottom:48px; }
+  .proto-link { display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; color:#F0F1ED; background:#1B2430; padding:11px 18px; border-radius:4px; text-decoration:none; margin-bottom:48px; transition:background .2s ease; }
+  .proto-link:hover { background:#DD5E1E; }
+  .proto-link svg { width:14px; height:14px; flex-shrink:0; }
+
+  .hero-img { width:calc(100% - 96px); max-width:1100px; margin:0 auto 64px; display:block; border-radius:8px; overflow:hidden; }
+  .hero-img img { width:100%; display:block; border-radius:8px; }
+  .img-ph { width:100%; min-height:340px; border-radius:8px; background:repeating-linear-gradient(135deg,#1B24300f,#1B24300f 12px,#1B24301c 12px,#1B24301c 24px); border:1px dashed #1B243044; display:flex; align-items:center; justify-content:center; text-align:center; padding:24px; }
+  .img-ph span { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; font-style:italic; max-width:320px; }
+  .img-pair .img-ph, .step .img-ph { min-height:260px; }
+
+  .meta-row { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin:0 auto 90px; width:calc(100% - 96px); max-width:904px; padding:32px 0; border-top:1px solid #1B24301a; border-bottom:1px solid #1B24301a; }
+  .meta-item .label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.05em; color:#1B243088; margin-bottom:8px; }
+  .meta-item .value { font-size:15px; font-weight:500; }
+  .meta-item .value.ph { color:#DD5E1E; font-style:italic; }
+
+  section { padding:0 48px 100px; max-width:1000px; margin:0 auto; }
+  .section-label { display:flex; align-items:center; gap:12px; margin-bottom:28px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#DD5E1E; }
+  .section-label::after { content:""; flex:1; height:1px; background:#1B243022; }
+  h2 { font-family:'Fraunces',serif; font-size:34px; font-weight:600; line-height:1.2; max-width:760px; margin-bottom:24px; }
+  p.body-text { font-size:16px; line-height:1.75; color:#1B2430dd; max-width:680px; margin-bottom:20px; }
+  .ph-tag { display:inline-block; background:#DD5E1E22; color:#DD5E1E; font-family:'JetBrains Mono',monospace; font-size:12px; padding:3px 8px; border-radius:3px; font-style:italic; }
+
+  .img-pair { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:36px 0; }
+  .img-pair img, .img-single img { width:100%; border-radius:8px; display:block; }
+  .img-single { margin:36px 0; }
+  figcaption { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; margin-top:12px; }
+
+  .step { display:grid; grid-template-columns:1fr 1.1fr; gap:48px; align-items:center; margin-bottom:80px; }
+  .step:nth-child(even) { direction:rtl; }
+  .step:nth-child(even) > div:first-child { direction:ltr; }
+  .step .step-num { font-family:'JetBrains Mono',monospace; font-size:13px; color:#DD5E1E; margin-bottom:12px; }
+  .step h3 { font-family:'Fraunces',serif; font-size:26px; font-weight:600; margin-bottom:14px; }
+  .step p { font-size:15px; line-height:1.7; color:#1B2430cc; }
+  .step img { width:100%; border-radius:8px; }
+
+  .learnings { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .learning-card { background:#fff; border-radius:8px; padding:32px; border:1px solid #1B24301a; }
+  .learning-card h4 { font-family:'Fraunces',serif; font-size:20px; margin-bottom:12px; }
+  .learning-card p { font-size:14px; line-height:1.65; color:#1B2430cc; }
+
+  .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:36px 0 44px; }
+  .stat-card { background:#fff; border:1px solid #1B24301a; border-radius:8px; padding:28px 24px; }
+  .stat-card .num { font-family:'Fraunces',serif; font-size:42px; font-weight:600; color:#DD5E1E; line-height:1; margin-bottom:10px; }
+  .stat-card .desc { font-size:13.5px; line-height:1.5; color:#1B2430cc; }
+
+  .nav-footer { display:flex; justify-content:space-between; padding:48px 48px 80px; border-top:1px solid #1B24301a; font-family:'JetBrains Mono',monospace; font-size:13px; }
+  .nav-footer a { color:#1B2430; text-decoration:none; }
+  .nav-footer a:hover { color:#DD5E1E; }
+  ul.checks { list-style:none; margin:4px 0 20px; }
+  ul.checks li { position:relative; padding-left:22px; font-size:15px; line-height:1.6; color:#1B2430cc; margin-bottom:8px; max-width:680px; }
+  ul.checks li::before { content:""; position:absolute; left:2px; top:9px; width:7px; height:7px; border-radius:50%; background:#DD5E1E; }
+  .step.wide { grid-template-columns:1fr; gap:32px; direction:ltr; }
+  .step.wide > div:first-child { max-width:680px; }
+  .step .step-img-wrap img { width:100%; border-radius:8px; display:block; }
+</style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html" class="mark"><img src="images/Ari-Berenson_Logo_Transparent-BG.png" alt="Ari Berenson" width="111" height="66"></a>
+  <div class="links"><a href="index.html">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
+</div>
+
+<div class="back"><a href="cvs-health-super-app.html">← CVS Health Super App</a></div>
+
+<div class="hero-wrap">
+  <div class="eyebrow">CASE STUDY — ENTERPRISE UX / NAVIGATION</div>
+  <h1 class="title">Global Navigation</h1>
+  <p class="tagline">One consistent header and navigation pattern for the CVS Health app, so every area feels like part of the same app and people always know where they are and what they can do next.</p>
+</div>
+
+<div class="hero-img">
+  <img src="images/cvs/nav-hero.jpg" alt="Five CVS Health app screens (Home, Pharmacy, Health, ExtraCare, Shop) sharing one header and tab bar, each with its own look">
+</div>
+
+<div class="meta-row meta-roles">
+  <div class="meta-item">
+    <div class="label">CLIENT</div>
+    <div class="value">CVS Health</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">ROLE</div>
+    <div class="value role">Senior Experience Designer
+      <div class="role-line"><span class="role-tag">Senior Designer:</span> Global Navigation</div>
+    </div>
+  </div>
+  <div class="meta-item">
+    <div class="label">TIMELINE</div>
+    <div class="value">2020–2026</div>
+  </div>
+  <div class="meta-item">
+    <div class="label">SKILLS</div>
+    <div class="value">Enterprise UX, design systems, interaction design, iOS &amp; Android patterns</div>
+  </div>
+</div>
+
+<section>
+  <div class="section-label">THE PROBLEM</div>
+  <h2>Across CVS Health, headers looked different from one area to the next, and nothing told you where you were.</h2>
+  <p class="body-text">Today across all CVS verticals, people see visually inconsistent headers with no perceived hierarchy to the top-level page within a given vertical. Some screens carried the old red treatment and others didn’t, and key actions like search and the cart showed up in different places.</p>
+  <p class="body-text">The visual design commitment was clear:</p>
+  <ul class="checks">
+    <li>Eliminate the red color</li>
+    <li>Leverage native standards and patterns</li>
+    <li>Implement a consistent and scalable approach across the app</li>
+  </ul>
+  <div class="img-single">
+    <img src="images/cvs/nav-problem.jpg" alt="Five CVS app screens with different headers: a plain Pharmacy title, a red Show card bar, an ExtraCare screen with a Back button, and a red Shop header with search">
+    <figcaption>Before: the same app, with a different header on nearly every screen.</figcaption>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">THE APPROACH</div>
+  <h2>Give every area the same header anatomy, then let each area express itself.</h2>
+
+  <div class="step">
+    <div>
+      <div class="step-num">01</div>
+      <h3>One parent header</h3>
+      <p>Swapping in a single new parent header was the first test. Visual consistency appeared right away, and the roots of the desired navigation pattern started to emerge.</p>
+      <p>It also allows design flexibility without sacrificing consistent top-level UX and clarity: each area can have its own color and imagery on top of the same structure.</p>
+    </div>
+    <img src="images/cvs/nav-1-parent-header.jpg" alt="Home, Pharmacy, Health, ExtraCare, and Shop screens, each with the same new parent header">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">02</div>
+      <h3>Parent and child headers</h3>
+      <p>Using both parent and child headers builds a natural, necessary hierarchy within each vertical. People see consistent framing as they enter an area, and can quickly understand its important places and actions.</p>
+    </div>
+    <img src="images/cvs/nav-2-parent-child.jpg" alt="A parent header for Shop with a title, search, and quick actions, next to a child header with a Back button">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">03</div>
+      <h3>Four parts, each with one job</h3>
+      <p>The parent header is made of four core areas of UI:</p>
+      <ul class="checks">
+        <li><strong>Utility unit:</strong> account actions relevant to the area</li>
+        <li><strong>Title:</strong> sets the hierarchy and confirms you’re in the right place</li>
+        <li><strong>Search bar:</strong> for people who know what they’re looking for and want it quickly</li>
+        <li><strong>Secondary nav row:</strong> quick access to the top places and actions in that area</li>
+      </ul>
+    </div>
+    <img src="images/cvs/nav-3-anatomy.jpg" alt="The Shop parent header with four numbered parts: utility unit, title, search bar, and secondary navigation row">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">04</div>
+      <h3>Destination first, then actions</h3>
+      <p>The pattern supports two mindsets. The bottom navigation lines up with the core areas people expect in the app. Once inside an area, people with a focused goal can use the secondary row to reach the most common actions. People who are exploring can keep going into the content below the header.</p>
+    </div>
+    <img src="images/cvs/nav-4-pattern.jpg" alt="Bottom navigation with Pharmacy selected, pointing to the Pharmacy header's quick actions and the content below it">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">05</div>
+      <h3>A tab bar that matches how people think</h3>
+      <p>The tab bar was reworked around the areas people look for: Home, Pharmacy, Health, ExtraCare, and Shop. A Health tab replaces Card, and Shop replaces Menu. The ExtraCare landing page is personalized based on the person’s membership status.</p>
+      <p>Landing screens reached from the tab bar don’t show a Back button, since they’re the top of their area.</p>
+    </div>
+    <img src="images/cvs/nav-5-tabbar.jpg" alt="Future landing screens for Home, Prescriptions, Health, ExtraCare, and Shop with notes on replacing the Card and Menu tabs">
+  </div>
+
+  <div class="step">
+    <div>
+      <div class="step-num">06</div>
+      <h3>Fewer paths to the same place</h3>
+      <p>One idea was a bottom sheet that opens from the Pharmacy tab. It looked tidy, but keeping it alongside the Pharmacy landing screen risked duplicate access points for common tasks while hiding other key ones. Weighing that trade-off was part of keeping the pattern simple. <span class="ph-tag">[Ari: which direction did we land on?]</span></p>
+    </div>
+    <img src="images/cvs/nav-6-tab-sheet.jpg" alt="The live Pharmacy screen next to a proposed Pharmacy tab sheet, with arrows showing duplicate access points">
+  </div>
+</section>
+
+<section>
+  <div class="section-label">WHERE IT’S HEADED</div>
+  <h2>With one consistent header in place, there’s room for guidance on color and expression.</h2>
+  <p class="body-text">Once the header is consistent, governance becomes possible: color guidance and variations that support expressive hero imagery, in step with the team’s work on centralized creative direction, plus rules for which sections of the UI can be turned on and off.</p>
+  <div class="group-label" style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#1B243099; margin:32px 0 0;">A 2025 GOAL, ACHIEVED</div>
+  <div class="stat-row" style="margin-top:16px;">
+    <div class="stat-card">
+      <div class="num">100%</div>
+      <div class="desc">Of eligible customers can now reach Caremark and Aetna through navigation, meeting the 2025 goal and delivering one integrated CVS Health experience</div>
+    </div>
+  </div>
+  <p class="body-text"><span class="ph-tag">[Ari: add any adoption, task-success, or satisfaction numbers for the new header and tab bar]</span></p>
+  <div class="img-single">
+    <img src="images/cvs/nav-appendix.jpg" alt="Home and Health screens showing expressive hero imagery under the consistent header">
+    <figcaption>Expressive hero imagery on top of a consistent header.</figcaption>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">LEARNINGS</div>
+  <h2>Key takeaways</h2>
+  <div class="learnings">
+    <div class="learning-card">
+      <h4>Fix the hierarchy before the decoration</h4>
+      <p>Once every area shared the same header anatomy, the design could vary a lot (color, imagery, content) without confusing anyone about where they were. <span class="ph-tag">[Ari: confirm / edit in your own words]</span></p>
+    </div>
+    <div class="learning-card">
+      <h4>Design for both mindsets</h4>
+      <p>Some people arrive with one goal and some arrive to browse. Putting quick actions in the header and exploration in the content below served both without a second navigation system. <span class="ph-tag">[Ari: confirm / edit in your own words]</span></p>
+    </div>
+  </div>
+</section>
+
+<div class="nav-footer">
+  <a href="cvs-health-search.html">← Global Search Optimization</a>
+  <a href="agently.html">Agently →</a>
+</div>
+
+<footer>© Ari Berenson</footer>
+
+<script src="lightbox.js"></script>
+</body>
+</html>

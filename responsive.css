@@ -5,7 +5,7 @@ img { max-width:100%; }
 
 /* Info row with several roles: the Role column fits its text, so each role stays on one line */
 @media (min-width: 901px) {
-  .meta-row.meta-roles { grid-template-columns:minmax(0,0.8fr) minmax(224px,max-content) minmax(0,0.8fr) minmax(0,1.3fr); }
+  .meta-row.meta-roles { grid-template-columns:minmax(0,0.8fr) minmax(248px,max-content) minmax(0,0.8fr) minmax(0,1.3fr); }
   .meta-row.meta-roles .role-line { white-space:nowrap; }
 }
 
