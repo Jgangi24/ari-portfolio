@@ -83,6 +83,16 @@
   .step.wide { grid-template-columns:1fr; gap:32px; direction:ltr; }
   .step.wide > div:first-child { max-width:680px; }
   .step .step-img-wrap img { width:100%; border-radius:8px; display:block; }
+  details.lib { margin:8px 0 0; border-top:1px solid #1B24301a; border-bottom:1px solid #1B24301a; }
+  details.lib summary { cursor:pointer; list-style:none; padding:20px 0; font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.05em; color:#1B2430; display:flex; align-items:center; gap:12px; }
+  details.lib summary::-webkit-details-marker { display:none; }
+  details.lib summary::before { content:"+"; color:#DD5E1E; font-size:18px; width:14px; }
+  details.lib[open] summary::before { content:"\2212"; }
+  details.lib summary:hover { color:#DD5E1E; }
+  details.lib .lib-count { color:#1B243088; }
+  details.lib .body-text { margin-bottom:24px; }
+  details.lib .lib-fig { margin:0 0 32px; }
+  details.lib .lib-fig img { width:100%; border-radius:8px; display:block; }
 </style>
 <link rel="stylesheet" href="responsive.css">
 </head>
@@ -199,14 +209,26 @@
     <img src="images/cvs/nav-5-tabbar.jpg" alt="Future landing screens for Home, Prescriptions, Health, ExtraCare, and Shop with notes on replacing the Card and Menu tabs">
   </div>
 
-  <div class="step">
-    <div>
-      <div class="step-num">06</div>
-      <h3>Fewer paths to the same place</h3>
-      <p>One idea was a bottom sheet that opens from the Pharmacy tab. It looked tidy, but keeping it alongside the Pharmacy landing screen risked duplicate access points for common tasks while hiding other key ones. Weighing that trade-off was part of keeping the pattern simple. <span class="ph-tag">[Ari: which direction did we land on?]</span></p>
-    </div>
-    <img src="images/cvs/nav-6-tab-sheet.jpg" alt="The live Pharmacy screen next to a proposed Pharmacy tab sheet, with arrows showing duplicate access points">
-  </div>
+  <details class="lib">
+    <summary>Under the hood: the component library <span class="lib-count">4 boards</span></summary>
+    <p class="body-text">The header and tab bar pattern is backed by a full component library for iOS, Android, and web: every variant, state, and platform version, specced and marked ready for development. Click any board to zoom in.</p>
+    <figure class="lib-fig">
+      <img src="images/cvs/nav-lib-top-nav.jpg" alt="Top navigation component library for iOS and Android: header variants for landing and child screens, supporting assets, and the secondary nav component">
+      <figcaption>Top navigation — iOS and Android</figcaption>
+    </figure>
+    <figure class="lib-fig">
+      <img src="images/cvs/nav-lib-bottom-nav.jpg" alt="Bottom navigation component library: tab bar templates for the Home, Pharmacy, Health, Shop and Benefits areas on iOS and Android">
+      <figcaption>Bottom navigation — iOS and Android</figcaption>
+    </figure>
+    <figure class="lib-fig">
+      <img src="images/cvs/nav-lib-web-header.jpg" alt="Website header component library: header variants for CVS and MinuteClinic, and the open menu">
+      <figcaption>Web header and menu</figcaption>
+    </figure>
+    <figure class="lib-fig">
+      <img src="images/cvs/nav-lib-menu-drawer.jpg" alt="Menu drawer templates and Pulse web components with interactive states">
+      <figcaption>Menu drawer templates and Pulse web components</figcaption>
+    </figure>
+  </details>
 </section>
 
 <section>
