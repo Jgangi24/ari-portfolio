@@ -206,27 +206,27 @@
       <p>The tab bar was reworked around the areas people look for: Home, Pharmacy, Health, ExtraCare, and Shop. A Health tab replaces Card, and Shop replaces Menu. The ExtraCare landing page is personalized based on the person’s membership status.</p>
       <p>Landing screens reached from the tab bar don’t show a Back button, since they’re the top of their area.</p>
     </div>
-    <img src="images/cvs/nav-5-tabbar.jpg" alt="Future landing screens for Home, Prescriptions, Health, ExtraCare, and Shop with notes on replacing the Card and Menu tabs">
+    <img src="images/cvs/nav-5-tabbar.jpg" alt="Landing screens for Home, Prescriptions, Health, ExtraCare, and Shop, with the new Health and Shop tabs in the tab bar">
   </div>
 
   <details class="lib">
     <summary>Under the hood: the component library <span class="lib-count">4 boards</span></summary>
-    <p class="body-text">The header and tab bar pattern is backed by a full component library for iOS, Android, and web: every variant, state, and platform version, specced and marked ready for development. Click any board to zoom in.</p>
+    <p class="body-text">Built with atomic design principles, the header and tab bar pattern is backed by a full component library for iOS, Android, and web: every variant, state, and platform version, specced and marked ready for development. Click any board to zoom in.</p>
+    <figure class="lib-fig">
+      <img src="images/cvs/nav-lib-atomic-web.jpg" alt="Web header components built with atomic design: search, cart, logo, menu button, secondary nav, sign-in states, category buttons, and the full main nav">
+      <figcaption>Atomic design: web header components, from atoms to the full main nav</figcaption>
+    </figure>
     <figure class="lib-fig">
       <img src="images/cvs/nav-lib-top-nav.jpg" alt="Top navigation component library for iOS and Android: header variants for landing and child screens, supporting assets, and the secondary nav component">
       <figcaption>Top navigation — iOS and Android</figcaption>
     </figure>
     <figure class="lib-fig">
-      <img src="images/cvs/nav-lib-bottom-nav.jpg" alt="Bottom navigation component library: tab bar templates for the Home, Pharmacy, Health, Shop and Benefits areas on iOS and Android">
-      <figcaption>Bottom navigation — iOS and Android</figcaption>
+      <img src="images/cvs/nav-lib-menu-drawer.jpg" alt="Menu drawer templates and Pulse web components with interactive states">
+      <figcaption>Menu drawer templates and Pulse web components</figcaption>
     </figure>
     <figure class="lib-fig">
       <img src="images/cvs/nav-lib-web-header.jpg" alt="Website header component library: header variants for CVS and MinuteClinic, and the open menu">
       <figcaption>Web header and menu</figcaption>
-    </figure>
-    <figure class="lib-fig">
-      <img src="images/cvs/nav-lib-menu-drawer.jpg" alt="Menu drawer templates and Pulse web components with interactive states">
-      <figcaption>Menu drawer templates and Pulse web components</figcaption>
     </figure>
   </details>
 </section>
@@ -234,7 +234,8 @@
 <section>
   <div class="section-label">WHERE IT’S HEADED</div>
   <h2>With one consistent header in place, there’s room for guidance on color and expression.</h2>
-  <p class="body-text">Once the header is consistent, governance becomes possible: color guidance and variations that support expressive hero imagery, in step with the team’s work on centralized creative direction, plus rules for which sections of the UI can be turned on and off.</p>
+  <p class="body-text">The new parent header and tab bar have shipped and are live in the app today.</p>
+  <p class="body-text">Once we’ve established a consistent header, we can introduce guidelines for color and design variations that allow for more expressive hero imagery. These guidelines will align with the color direction currently being developed in collaboration with the Centralized Creative Direction team. Additional guidance will also define which UI elements can be enabled or disabled to support greater flexibility.</p>
   <div class="group-label" style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#1B243099; margin:32px 0 0;">A 2025 GOAL, ACHIEVED</div>
   <div class="stat-row" style="margin-top:16px;">
     <div class="stat-card">
@@ -254,12 +255,12 @@
   <h2>Key takeaways</h2>
   <div class="learnings">
     <div class="learning-card">
-      <h4>Fix the hierarchy before the decoration</h4>
-      <p>Once every area shared the same header anatomy, the design could vary a lot (color, imagery, content) without confusing anyone about where they were. <span class="ph-tag">[Ari: confirm / edit in your own words]</span></p>
+      <h4>Establish hierarchy before adding expression</h4>
+      <p>Once every area shared the same header anatomy, the design could vary a lot (color, imagery, content) without confusing anyone about where they were.</p>
     </div>
     <div class="learning-card">
-      <h4>Design for both mindsets</h4>
-      <p>Some people arrive with one goal and some arrive to browse. Putting quick actions in the header and exploration in the content below served both without a second navigation system. <span class="ph-tag">[Ari: confirm / edit in your own words]</span></p>
+      <h4>Design by anticipating needs</h4>
+      <p>Some people arrive with one goal and some arrive to browse. Putting quick actions in the header and exploration in the content below served both without a second navigation system.</p>
     </div>
   </div>
 </section>
