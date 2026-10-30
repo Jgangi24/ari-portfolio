@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brand Identity — Ari Berenson</title>
+<link rel="stylesheet" href="lightbox.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { overflow-y: scroll; }
+  body { font-family:'Space Grotesk',sans-serif; background:#F0F1ED; color:#1B2430; }
+  .nav { display:flex; justify-content:space-between; align-items:center; padding:32px 48px; border-bottom:1px solid #1B24301a; }
+  .nav .mark { font-family:'Fraunces',serif; font-size:20px; font-weight:600; }
+  .nav .mark img { height:66px; display:block; }
+  .nav .links { display:flex; gap:32px; font-size:13px; font-weight:500; }
+  .nav .links span:hover { color:#DD5E1E; cursor:pointer; }
+
+  .nav .links a { color:#1B2430; text-decoration:none; }
+  .nav .links a.current { color:#DD5E1E; }
+  .card, .card:hover, .card:visited { color:inherit; text-decoration:none; }
+  .card * { text-decoration:none; }
+  .back { padding:28px 48px 0; max-width:1000px; margin:0 auto;}
+  .back a { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; text-decoration:none; }
+  .back a:hover { color:#DD5E1E; }
+  .hero-wrap { padding:40px 48px 0; max-width:1000px; margin:0 auto; }
+  .eyebrow { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; background:#1B2430; color:#F0F1ED; padding:5px 12px; border-radius:2px; margin-bottom:24px; }
+  h1.title { font-family:'Fraunces',serif; font-size:52px; font-weight:600; line-height:1.1; letter-spacing:-0.01em; margin-bottom:24px; }
+  .tagline { font-size:18px; line-height:1.7; color:#1B2430dd; max-width:640px; margin-bottom:56px; }
+  .ph-tag { display:inline-block; background:#DD5E1E22; color:#DD5E1E; font-family:'JetBrains Mono',monospace; font-size:12px; padding:3px 8px; border-radius:3px; font-style:italic; }
+  section { padding:0 48px 90px; max-width:1000px; margin:0 auto; }
+  .section-label { display:flex; align-items:center; gap:12px; margin-bottom:32px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.05em; color:#DD5E1E; }
+  .section-label::after { content:""; flex:1; height:1px; background:#1B243022; }
+  .logo-showcase { background:#fff; border-radius:8px; padding:60px; min-height:420px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+  .logo-showcase img { max-width:560px; width:100%; display:block; }
+  figcaption { font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; }
+  .app-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .app-grid img { width:100%; border-radius:8px; display:block; }
+  .full-img { margin-bottom:16px; }
+  .full-img img { width:100%; border-radius:8px; display:block; }
+  .subtitle { font-family:'JetBrains Mono',monospace; font-size:13px; color:#1B243099; margin-bottom:20px; }
+  .logo-variants { display:grid; grid-template-columns:1fr 2fr; gap:16px; margin-bottom:16px; }
+  .logo-variants .swatch { background:#fff; border-radius:8px; padding:32px; display:flex; align-items:center; justify-content:center; min-height:160px; }
+  .logo-variants .swatch.dark { background:#1B2430; }
+  .logo-variants img { max-width:100%; display:block; }
+  .jump { display:flex; flex-wrap:wrap; gap:8px 28px; margin:0 0 56px; font-family:'JetBrains Mono',monospace; font-size:12px; }
+  .jump a { color:#1B2430; text-decoration:none; border-bottom:1px solid #1B243033; padding-bottom:2px; }
+  .jump a:hover { color:#DD5E1E; border-color:#DD5E1E; }
+  section.brand + section.brand { border-top:1px solid #1B243022; padding-top:64px; }
+  h2.brand-title { font-family:'Fraunces',serif; font-size:40px; font-weight:600; line-height:1.1; letter-spacing:-0.01em; margin-bottom:16px; }
+  section.brand .tagline { margin-bottom:48px; }
+  section.brand .block + .block { margin-top:56px; }
+  footer { padding:40px 48px; border-top:1px solid #1B24301a; font-family:'JetBrains Mono',monospace; font-size:12px; color:#1B243088; }
+  .nav-footer { display:flex; justify-content:space-between; padding:0 48px 48px; font-family:'JetBrains Mono',monospace; font-size:13px; }
+  .nav-footer a { color:#1B2430; text-decoration:none; }
+  .nav-footer a:hover { color:#DD5E1E; }
+</style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+<div class="nav">
+  <a href="index.html" class="mark"><img src="images/Ari-Berenson_Logo_Transparent-BG.png" alt="Ari Berenson" width="111" height="66"></a>
+  <div class="links"><a href="index.html">Work</a><a href="about.html">About</a><a href="resume.pdf" target="_blank">Resume</a><a href="contact.html">Contact</a></div>
+</div>
+
+<div class="back"><a href="index.html">← Back to Work</a></div>
+
+<div class="hero-wrap">
+  <div class="eyebrow">BRAND IDENTITY</div>
+  <h1 class="title">Brand Identity</h1>
+  <p class="tagline"><span class="ph-tag">[Ari: confirm or rewrite this intro]</span> Three brand identities, from a small-batch food company to a CBD wellness line to a members-style social club.</p>
+  <nav class="jump" aria-label="Brands on this page">
+    <a href="#tiger-lily">Tiger Lily Granola</a>
+    <a href="#by-doctors">By Doctors</a>
+    <a href="#weom">WEOM</a>
+  </nav>
+</div>
+
+<section class="brand" id="tiger-lily">
+  <h2 class="brand-title">Tiger Lily Granola</h2>
+  <p class="tagline"><span class="ph-tag">[Ari: replace with the real concept]</span> A brand identity for a small-batch granola company — warm, hand-crafted, and a little playful, built to feel at home on a farmers market table as much as a grocery shelf.</p>
+  <div class="block">
+    <div class="section-label">IDENTITY</div>
+    <div class="logo-showcase">
+      <img src="images/TigerLily-Logo2.webp" alt="Tiger Lily Granola logo mark">
+    </div>
+    <figcaption>A hand-lettered wordmark set inside a soft, cloud-like badge — approachable and a little homemade, on purpose.</figcaption>
+  </div>
+  <div class="block">
+    <div class="section-label">IN THE WORLD</div>
+    <div class="app-grid">
+      <img src="images/TigerLily_Truck.webp" alt="Tiger Lily Granola food truck at a market">
+      <img src="images/TigerLily-Apparel.webp" alt="Tiger Lily Granola branded apparel and tote bag">
+    </div>
+  </div>
+</section>
+
+<section class="brand" id="by-doctors">
+  <h2 class="brand-title">By Doctors</h2>
+  <div class="subtitle">"Creating Better Days" — CBD wellness products</div>
+  <p class="tagline"><span class="ph-tag">[Ari: replace with the real concept]</span> A clinical, trustworthy identity for a CBD product line — cool blues and clean typography that borrow credibility from medical packaging, built to stand out on a shelf full of louder, more "wellness-washed" competitors.</p>
+  <div class="block">
+    <div class="section-label">IDENTITY</div>
+    <div class="logo-showcase">
+      <img src="images/CBD-Logo-2.webp" alt="By Doctors logo mark">
+    </div>
+    <figcaption>A pill-shaped monogram — a quiet nod to the "By Doctors" name without leaning on an obvious medical cliché.</figcaption>
+  </div>
+  <div class="block">
+    <div class="section-label">IN THE WORLD</div>
+    <div class="full-img">
+      <img src="images/CBD-Suite.webp" alt="By Doctors full product suite including capsules, honey straws, tincture, and softgels">
+    </div>
+    <div class="full-img">
+      <img src="images/CBD-Tincture.webp" alt="By Doctors Cureful tincture packaging detail">
+    </div>
+  </div>
+</section>
+
+<section class="brand" id="weom">
+  <h2 class="brand-title">WEOM</h2>
+  <div class="subtitle">"Exclusively awesome"</div>
+  <p class="tagline"><span class="ph-tag">[Ari: replace with the real concept]</span> An identity for a members-style social club, built around a bold eagle mark and a tongue-in-cheek motto — a logo confident enough to work equally well screen-printed on a polo or stamped in gold foil.</p>
+  <div class="block">
+    <div class="section-label">IDENTITY</div>
+    <div class="logo-variants">
+      <div class="swatch"><img src="images/WEOM-Logo_red.webp" alt="WEOM primary red logo"></div>
+      <div class="swatch dark"><img src="images/WEOM-AltLogos.webp" alt="WEOM logo colorway variations — black, white, and green"></div>
+    </div>
+    <figcaption>The primary mark, plus a flexible colorway system — black, white, and green — for different applications.</figcaption>
+  </div>
+  <div class="block">
+    <div class="section-label">IN THE WORLD</div>
+    <div class="full-img">
+      <img src="images/WEOM_Apparel_TENNIS.webp" alt="Group wearing WEOM branded polo shirts">
+    </div>
+    <figcaption>Branded apparel in real use — the mark holds up at a distance, which matters for a logo meant to live on a shirt.</figcaption>
+  </div>
+</section>
+
+<div class="nav-footer">
+  <a href="mynb.html">← MyNB</a>
+  <a href="sitting-in-the-circle.html">Sitting In The Circle →</a>
+</div>
+
+<footer>© Ari Berenson</footer>
+
+<script src="lightbox.js"></script>
+</body>
+</html>
